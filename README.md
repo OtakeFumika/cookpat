@@ -24,7 +24,7 @@
 | history      | text     |  null: false    |
 | tip     | text     |    |
 
-##Association
+## Association
 - belongs_to :user
 - belongs_to :category
 - has_many :recipe_foods
@@ -88,7 +88,7 @@
 | food_id     | integer     | foreign_key :true, index :true   |
 | recipe_id   | integer     | foreign_key :true, index :true           |
 
-##Association
+## Association
 - belongs_to :recipe
 - belongs_to :food
 
