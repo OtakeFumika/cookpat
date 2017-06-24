@@ -1,0 +1,310 @@
+.header
+  .header__menu
+    %ul.header__menu__left
+      = link_to root_path, method: :get do
+        %li.header__menu__left__toppage
+          クックパッド
+      = link_to root_path, method: :get do
+        %li.header__menu__left__service
+          サービス一覧
+      = link_to root_path, method: :get do
+        %li.header__menu__left__recommend
+          やみつきタイ料理をマスター！
+    %ul.header__menu__right
+      %li.header__menu__right__login
+        ログイン
+      %li.header__menu__right__registration
+        ユーザー登録(無料)
+      %li.header__menu__right__premium
+        プレミアムサービス
+.body
+  .service-header
+    .service-header__logo
+      = link_to root_path, method: :get do
+        = image_tag 'logo.png', width: 264, height: 54, alt: 'logo'
+        .service-header__logo__recipe-count
+          %span.service-header__logo__recipe-count__body
+            269
+            %span.service-header__logo__recipe-count__body__small
+              万
+            %span.service-header__logo__recipe-count__body__small
+              レシピ
+    .service-header__search
+      = form_tag(recipes_search_path, method: :post, class: 'service-header__search__form', id: 'global-search-form') do
+        = search_field_tag :text, '',class: 'service-header__search__form__food', placeholder: '料理名・食材名'
+        %i.fa.fa-times
+        = search_field_tag :use, '', class: 'service-header__search__form__use', placeholder: '目的・用途'
+        = submit_tag :レシピ検索, class: 'service-header__search__form__send', id: 'submit_button'
+      %ul.service-header__search__recommend
+        = link_to root_path, method: :get do
+          %li.service-header__search__recommend__list
+            枝豆
+        = link_to root_path, method: :get do
+          %li.service-header__search__recommend__list
+            梅ジュース
+        = link_to root_path, method: :get do
+          %li.service-header__search__recommend__list
+            梅シロップ
+        = link_to root_path, method: :get do
+          %li.service-header__search__recommend__list
+            しそジュース
+        = link_to root_path, method: :get do
+          %li.service-header__search__recommend__list
+            南蛮漬け
+        %i.fa.fa-chevron-circle-right
+    %ul.service-header__lists
+      = link_to root_path, method: :get do
+        %li.service-header__lists__my-folder
+          %i.fa.fa-folder.fa-2x
+          %p MYフォルダ
+      = link_to root_path, method: :get do
+        %li.service-header__lists__my-news
+          %i.fa.fa-calendar.fa-2x
+          %p MYニュース
+      = link_to root_path, method: :get do
+        .service-header__lists__write-recipe
+          レシピを書く
+  .user-register
+    %h1.user-register__title
+      クックパッドにユーザー登録（無料）する
+    .user-register__form
+      %form
+        %table.user-register__form__table
+          %tr.user-register__form__table__label
+            %td{colspan: 2}
+              %i.fa.fa-lock.fa-lg
+              ログインに使用する情報
+          %tr.user-register__form__table__mail
+            %th
+              %label
+                メールアドレス
+            %td
+              %input{type: 'email', class: 'user-register__form__table__mail__input'}
+              %p.user-register__form__table__mail__text
+                ※メールアドレスはログインに使用します。
+          %tr.user-register__form__table__pass
+            %th
+              %label
+                パスワード
+              %i.fa.fa-question-circle.lg
+            %td
+              %input{type: 'password', class: 'user-register__form__table__pass__input'}
+          %tr.user-register__form__table__confirm-pass
+            %th
+              %label
+                パスワード(確認)
+            %td
+              %input{type: 'password', class: 'user-register__form__table__confirm-pass__input'}
+          %tr.user-register__form__table__label
+            %td{ colspan: 2}
+              %i.fa.fa-cog.fa-lg#cog
+              ログイン情報を忘れた場合にご本人様確認のために使用する情報
+          %tr.user-register__form__table__postnum
+            %th
+              %label
+                郵便番号
+            %td
+              %input{type: 'text', autocomplete: "postal-code", name:'postal-code', min: '7', max: '7', class: 'user-register__form__table__postnum__input'}
+          %tr.user-register__form__table__birthday
+            %th
+              %label
+                生年月日
+            %td
+              %select.user-register__form__table__birthday__select#month{name: "user[birthday(1i)]"}
+                %option{value: ""} --
+                %option{value: "1902"} 1902
+                %option{value: "1903"} 1903
+                %option{value: "1904"} 1904
+                %option{value: "1905"} 1905
+                %option{value: "1906"} 1906
+                %option{value: "1907"} 1907
+                %option{value: "1908"} 1908
+                %option{value: "1909"} 1909
+                %option{value: "1910"} 1910
+                %option{value: "1911"} 1911
+                %option{value: "1912"} 1912
+                %option{value: "1913"} 1913
+                %option{value: "1914"} 1914
+                %option{value: "1915"} 1915
+                %option{value: "1916"} 1916
+                %option{value: "1917"} 1917
+                %option{value: "1918"} 1918
+                %option{value: "1919"} 1919
+                %option{value: "1920"} 1920
+                %option{value: "1921"} 1921
+                %option{value: "1922"} 1922
+                %option{value: "1923"} 1923
+                %option{value: "1924"} 1924
+                %option{value: "1925"} 1925
+                %option{value: "1926"} 1926
+                %option{value: "1927"} 1927
+                %option{value: "1928"} 1928
+                %option{value: "1929"} 1929
+                %option{value: "1930"} 1930
+                %option{value: "1931"} 1931
+                %option{value: "1932"} 1932
+                %option{value: "1933"} 1933
+                %option{value: "1934"} 1934
+                %option{value: "1935"} 1935
+                %option{value: "1936"} 1936
+                %option{value: "1937"} 1937
+                %option{value: "1938"} 1938
+                %option{value: "1939"} 1939
+                %option{value: "1940"} 1940
+                %option{value: "1941"} 1941
+                %option{value: "1942"} 1942
+                %option{value: "1943"} 1943
+                %option{value: "1944"} 1944
+                %option{value: "1945"} 1945
+                %option{value: "1946"} 1946
+                %option{value: "1947"} 1947
+                %option{value: "1948"} 1948
+                %option{value: "1949"} 1949
+                %option{value: "1950"} 1950
+                %option{value: "1951"} 1951
+                %option{value: "1952"} 1952
+                %option{value: "1953"} 1953
+                %option{value: "1954"} 1954
+                %option{value: "1955"} 1955
+                %option{value: "1956"} 1956
+                %option{value: "1957"} 1957
+                %option{value: "1958"} 1958
+                %option{value: "1959"} 1959
+                %option{value: "1960"} 1960
+                %option{value: "1961"} 1961
+                %option{value: "1962"} 1962
+                %option{value: "1963"} 1963
+                %option{value: "1964"} 1964
+                %option{value: "1965"} 1965
+                %option{value: "1966"} 1966
+                %option{value: "1967"} 1967
+                %option{value: "1968"} 1968
+                %option{value: "1969"} 1969
+                %option{seected: "selected", value: "1970"} 1970
+                %option{value: "1971"} 1971
+                %option{value: "1972"} 1972
+                %option{value: "1973"} 1973
+                %option{value: "1974"} 1974
+                %option{value: "1975"} 1975
+                %option{value: "1976"} 1976
+                %option{value: "1977"} 1977
+                %option{value: "1978"} 1978
+                %option{value: "1979"} 1979
+                %option{value: "1980"} 1980
+                %option{value: "1981"} 1981
+                %option{value: "1982"} 1982
+                %option{value: "1983"} 1983
+                %option{value: "1984"} 1984
+                %option{value: "1985"} 1985
+                %option{value: "1986"} 1986
+                %option{value: "1987"} 1987
+                %option{value: "1988"} 1988
+                %option{value: "1989"} 1989
+                %option{value: "1990"} 1990
+                %option{value: "1991"} 1991
+                %option{value: "1992"} 1992
+                %option{value: "1993"} 1993
+                %option{value: "1994"} 1994
+                %option{value: "1995"} 1995
+                %option{value: "1996"} 1996
+                %option{value: "1997"} 1997
+                %option{value: "1998"} 1998
+                %option{value: "1999"} 1999
+                %option{value: "2000"} 2000
+                %option{value: "2001"} 2001
+                %option{value: "2002"} 2002
+                %option{value: "2003"} 2003
+                %option{value: "2004"} 2004
+                %option{value: "2005"} 2005
+                %option{value: "2006"} 2006
+                %option{value: "2007"} 2007
+                %option{value: "2008"} 2008
+                %option{value: "2009"} 2009
+                %option{value: "2010"} 2010
+                %option{value: "2011"} 2011
+                %option{value: "2012"} 2012
+                %option{value: "2013"} 2013
+                %option{value: "2014"} 2014
+                %option{value: "2015"} 2015
+                %option{value: "2016"} 2016
+                %option{value: "2017"} 2017
+              年
+              %select.user-register__form__table__birthday__select{name: "user[birthday(2i)]"}
+                %option{value: ""} --
+                %option{seected: "selected", value: "1"} 1
+                %option{value: "2"} 2
+                %option{value: "3"} 3
+                %option{value: "4"} 4
+                %option{value: "5"} 5
+                %option{value: "6"} 6
+                %option{value: "7"} 7
+                %option{value: "8"} 8
+                %option{value: "9"} 9
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+              月
+              %select.user-register__form__table__birthday__select{name: "user[birthday(3i)]"}
+                %option{value: ""} --
+                %option{seected: "selected", value: "1"} 1
+                %option{value: "2"} 2
+                %option{value: "3"} 3
+                %option{value: "4"} 4
+                %option{value: "5"} 5
+                %option{value: "6"} 6
+                %option{value: "7"} 7
+                %option{value: "8"} 8
+                %option{value: "9"} 9
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+                %option{value: "13"} 13
+                %option{value: "14"} 14
+                %option{value: "15"} 15
+                %option{value: "16"} 16
+                %option{value: "17"} 17
+                %option{value: "18"} 18
+                %option{value: "19"} 19
+                %option{value: "20"} 20
+                %option{value: "21"} 21
+                %option{value: "22"} 22
+                %option{value: "23"} 23
+                %option{value: "24"} 24
+                %option{value: "25"} 25
+                %option{value: "26"} 26
+                %option{value: "27"} 27
+                %option{value: "28"} 28
+                %option{value: "29"} 29
+                %option{value: "30"} 30
+                %option{value: "31"} 31
+              日
+          %tr.user-register__form__table__sex
+            %th
+              %label
+                性別
+            %td
+              %label
+                %input{type: 'radio', class: 'user-register__form__table__sex__input'}
+                %span
+                  女性
+              %label
+                %input{type: 'radio', class: 'user-register__form__table__sex__input'}
+                %span
+                  男性
+          %tr.user-register__form__table__space
+            %td{colspan: 2}
+          %tr.user-register__form__table__user-mail-notification
+            %th
+              お知らせメール
+            %td
+              %label
+                %input{type: 'checkbox', class: 'user-register__form__table__user-mail-notification__input'}
+                %span
+                  クックパッドの最新情報を受け取る
+      .user-register__form__submit
+        %p.user-register__form__submit__text
+          = link_to root_path, method: :get do
+            クックパッドご利用
+          規約に同意の上、「同意して確認画面に進む」ボタンを押してください
+        %input{type: 'submit', class: 'user-register__form__submit__button', value: '同意して確認画面に進む'}
+
