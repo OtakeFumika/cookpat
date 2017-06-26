@@ -1,5 +1,8 @@
 @import "font-awesome";
 
+@import "./config/variable";
+@import "./config/mixin";
 @import "./reset";
+@import "./modules/header";
 @import "./users";
 @import "./sessions";

@@ -1,0 +1,22 @@
+.header
+  .header__menu
+    %ul.header__menu__left
+      = link_to root_path, method: :get do
+        %li.header__menu__left__toppage
+          クックパッド
+      = link_to root_path, method: :get do
+        %li.header__menu__left__service
+          サービス一覧
+      = link_to root_path, method: :get do
+        %li.header__menu__left__recommend
+          やみつきタイ料理をマスター！
+    %ul.header__menu__right
+      = link_to root_path, method: :get do
+        %li.header__menu__right__login
+          ログイン
+      = link_to root_path, method: :get do
+        %li.header__menu__right__registration
+          ユーザー登録(無料)
+      = link_to root_path, method: :get do
+        %li.header__menu__right__premium
+          プレミアムサービス
