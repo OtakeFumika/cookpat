@@ -1,0 +1,46 @@
+.service-header
+  .service-header__logo
+    = link_to root_path, method: :get do
+      = image_tag 'logo.png', width: 264, height: 54, alt: 'logo'
+      .service-header__logo__recipe-count
+        %span.service-header__logo__recipe-count__body
+          269
+          %span.service-header__logo__recipe-count__body__small
+            万
+          %span.service-header__logo__recipe-count__body__small
+            レシピ
+  .service-header__search
+    = form_tag(recipes_search_path, method: :post, class: 'service-header__search__form', id: 'global-search-form') do
+      = search_field_tag :text, '',class: 'service-header__search__form__food', placeholder: '料理名・食材名'
+      %i.fa.fa-times
+      = search_field_tag :use, '', class: 'service-header__search__form__use', placeholder: '目的・用途'
+      = submit_tag :レシピ検索, class: 'service-header__search__form__send', id: 'submit_button'
+    %ul.service-header__search__recommend
+      = link_to root_path, method: :get do
+        %li.service-header__search__recommend__list
+          枝豆
+      = link_to root_path, method: :get do
+        %li.service-header__search__recommend__list
+          梅ジュース
+      = link_to root_path, method: :get do
+        %li.service-header__search__recommend__list
+          梅シロップ
+      = link_to root_path, method: :get do
+        %li.service-header__search__recommend__list
+          しそジュース
+      = link_to root_path, method: :get do
+        %li.service-header__search__recommend__list
+          南蛮漬け
+      %i.fa.fa-chevron-circle-right
+  %ul.service-header__lists
+    = link_to root_path, method: :get do
+      %li.service-header__lists__my-folder
+        %i.fa.fa-folder.fa-2x
+        %p MYフォルダ
+    = link_to root_path, method: :get do
+      %li.service-header__lists__my-news
+        %i.fa.fa-calendar.fa-2x
+        %p MYニュース
+    = link_to root_path, method: :get do
+      .service-header__lists__write-recipe
+        レシピを書く

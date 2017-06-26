@@ -1,0 +1,47 @@
+@mixin clearfix(){
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+@mixin partition(){
+  &::before{
+    color:#eee;
+    content:"|";
+    padding:0 0 0 5px;
+  }
+}
+@mixin header-icon(){
+  display: inline-block;
+  width:65px;
+  text-align: center;
+  color:$header-icon;
+}
+@mixin global-search(){
+  box-sizing:border-box;
+  border-radius:3px;
+  background-color: white;
+  border-color:$ivory;
+  outline-color: brown;
+  border-width: 1px;
+  font-size:80%;
+}
+@mixin search-icon(){
+  background: image-url('search-icon.png');
+  background-repeat: no-repeat;
+  background-position: 5px;
+  background-size:auto 15px;
+}
+@mixin header-right-link(){
+  display:inline-block;
+  float:right;
+  margin: 0 10px;
+  color:black;
+}
+@mixin link(){
+  a{
+    text-decoration: none;
+    color:black;
+  }
+}

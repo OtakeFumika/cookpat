@@ -1,0 +1,195 @@
+.header{
+  width:100%;
+  position:fixed;
+  height:34px;
+  background-color: white;
+  border-bottom: 1px solid $border-color;
+  @include clearfix();
+  &__menu{
+    width:970px;
+    margin:0 auto;
+    height:34px;
+    font-size:13px;
+    &__left{
+      width:460px;
+      float:left;
+      height:34px;
+      line-height: 34px;
+      white-space: nowrap;
+      @include link();
+      &__toppage{
+        display:inline-block;
+        margin:0px 6px;
+        font-weight: bold;
+        &::before{
+          font-family: 'FontAwesome';
+          content: '\f060';
+        }
+      }
+      &__service{
+        display: inline-block;
+        margin:0px 6px;
+        color: $brown-font;
+        @include partition();
+      }
+      &__recommend{
+        display: inline-block;
+        margin:0 6px;
+        color:$brown-font;
+        @include partition();
+      }
+    }
+    &__right{
+      width:460px;
+      float:right;
+      height:34px;
+      line-height: 34px;
+      white-space: nowrap;
+      &__registration{
+        display:inline-block;
+        float:right;
+        margin:0 10px;
+        color:black;
+      }
+      &__login{
+        @include header-right-link();
+      }
+      &__premium{
+        @include header-right-link();
+      }
+    }
+  }
+}
+
+.service-header{
+  @include clearfix();
+  width:970px;
+  margin:0 auto;
+  height:82px;
+  padding-top: 34px;
+  &__logo{
+    margin-top: 12px;
+    margin-right: 12px;
+    float:left;
+    height:68px;
+    a{
+      text-decoration: none;
+      display:block;
+    }
+    &__recipe-count{
+      position:relative;
+      left:206px;
+      right:auto;
+      bottom:40px;
+      width:50px;
+      text-align: center;
+      line-height:8px;
+      letter-spacing: -1px;
+      &__body{
+        font-size:16px;
+        font-weight: bold;
+        color:$count-font;
+        &__small{
+          font-size:10px;
+        }
+      }
+    }
+  }
+  &__search{
+    width:410px;
+    height:57px;
+    float:left;
+    margin-top: 14px;
+    &__form{
+      &__food{
+        @include search-icon();
+        width:210px;
+        padding-left: 27px;
+        margin-right:-2px;
+        border-width: 1px;
+        @include global-search();
+      }
+      &__use{
+        @include global-search();
+        width:90px;
+        padding-left:5px;
+        outline-width: 1px;
+        margin-left: -2px;
+      }
+      &__send{
+        height:32px;
+        border-radius:3px;
+        box-sizing:border-box;
+        box-shadow: none;
+        outline: none;
+        background-color: $light-gray;
+        text-shadow: 0 1px 0 white;
+        border-color: $ivory;
+        position:relative;
+        top:1px;
+        font-size:90%;
+        border-width: 1px;
+        width:86px;
+        margin: -1px;
+      }
+    }
+    &__recommend{
+      a{
+        text-decoration: none;
+      }
+      &__list{
+        display:inline-block;
+        color: $dark-brown;
+        font-size:70%;
+      }
+    }
+  }
+  &__lists{
+    width:270px;
+    height:70px;
+    float:right;
+    margin-top:6px;
+    a{
+      text-decoration: none;
+    }
+    p{
+      color:black;
+      font-size:60%;
+    }
+    &__my-folder{
+      @include header-icon();
+      line-height: 20px;
+      padding-top: 14px;
+    }
+    &__my-news{
+      @include header-icon();
+    }
+    &__write-recipe{
+      &::before{
+        font-family: 'FontAwesome';
+        content: '\f044';
+        font-size:120%;
+        font-weight:normal;
+        display: inline-block;
+      }
+      color:white;
+      float:right;
+      height:32px;
+      width:130px;
+      background-color: $green;
+      line-height: 32px;
+      font-weight: bold;
+      text-align: center;
+      margin-top:14px;
+      box-sizing:border-box;
+      text-shadow: 0 0 1px black;
+      font-size:90%;
+      border-radius:3px;
+    }
+  }
+}
+.body{
+  background-color: $body-color;
+  height:100vh;
+  width:100%;
+}

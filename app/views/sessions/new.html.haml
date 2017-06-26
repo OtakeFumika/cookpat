@@ -1,39 +1,42 @@
-.login
-  .login__form
-    .login__form__title
-      %p
-        ユーザー登録されている方
-    .login__form__input
-      .login__form__input__left
-        %form
-          %label
-            %p
-              メールアドレス
-            %input{type: 'email', class: 'login__form__input__left__text'}
-          %label
-            %p
-              パスワード
-            %input{type: 'password', class: 'login__form__input__left__text'}
-          %label
-            %input{type: 'submit', value: 'ログイン', class: 'login__form__input__left__button', id: 'login-button'}
-        = link_to root_path, method: :get do
-          パスワード、登録情報を忘れてしまった方
-      .login__form__input__right
-        .login__form__input__right__title
-          %p
-            ログインできずお困りの方
-        .login__form__input__right__text
-          %p
-            よくある原因
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .login
+    .login__form
+      .login__form__title
+        %p
+          ユーザー登録されている方
+      .login__form__input
+        .login__form__input__left
+          %form
+            %label
+              %p
+                メールアドレス
+              %input{type: 'email', class: 'login__form__input__left__text'}
+            %label
+              %p
+                パスワード
+              %input{type: 'password', class: 'login__form__input__left__text'}
+            %label
+              %input{type: 'submit', value: 'ログイン', class: 'login__form__input__left__button', id: 'login-button'}
           = link_to root_path, method: :get do
-            クックパッドヘルプ
-          %i.fa.fa-share
-  .login__guest-user
-    .login__guest-user__title
-      %p
-        ユーザー登録されていない方
-    .login__guest-user__form
-      %p
-        まずはこちらからユーザー登録をお願いします。
-      = link_to root_path, method: :get do
-        クックパッドユーザー登録（無料）
+            パスワード、登録情報を忘れてしまった方
+        .login__form__input__right
+          .login__form__input__right__title
+            %p
+              ログインできずお困りの方
+          .login__form__input__right__text
+            %p
+              よくある原因
+            = link_to root_path, method: :get do
+              クックパッドヘルプ
+            %i.fa.fa-share
+    .login__guest-user
+      .login__guest-user__title
+        %p
+          ユーザー登録されていない方
+      .login__guest-user__form
+        %p
+          まずはこちらからユーザー登録をお願いします。
+        = link_to root_path, method: :get do
+          クックパッドユーザー登録（無料）
