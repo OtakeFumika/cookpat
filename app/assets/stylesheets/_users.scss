@@ -36,9 +36,8 @@
       }
       &__mail{
         &__input{
-          width:260px;
-          height:35px;
-          margin: 10px 10px 0 10px;
+          @include users-new-input();
+          margin-bottom: 0;
         }
         &__text{
           font-size:70%;
@@ -48,30 +47,22 @@
       }
       &__pass{
         &__input{
-          width:260px;
-          height:35px;
-          margin: 10px;
+          @include users-new-input();
         }
       }
       &__confirm-pass{
         &__input{
-          width:260px;
-          height:35px;
-          margin: 10px;
+          @include users-new-input();
         }
       }
       &__name{
         &__input{
-          width:260px;
-          height:35px;
-          margin:10px;
+          @include users-new-input();
         }
       }
       &__postnum{
         &__input{
-          width:105px;
-          height:30px;
-          margin: 10px;
+          @include users-new-input();
         }
       }
       &__birthday{
