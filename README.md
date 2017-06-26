@@ -5,10 +5,13 @@
 
 | column | type | option |
 |:-----------|------------:|:------------:|
-| name       | string      | null: false,index: true, unique: true        |
+| name       | string      | null: false,index: true      |
 | mail     | text      | null: false, unique: true        |
 | image       | text        | null: false         |
 | password    | text          | null: false,unique: true,index :true           |
+| sex         | integer          | null: false   |
+| birthday    | date          | null, false  |
+| postal-code     | integer  | null, false |
 
 ## Association
 - has_many :resipes
