@@ -55,7 +55,10 @@
         @include header-right-link();
       }
       &__premium{
-        @include header-right-link();
+        color: $orange;
+        font-weight: bold;
+        text-decoration: none;
+        float:right;
       }
     }
   }
