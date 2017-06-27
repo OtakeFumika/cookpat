@@ -5,7 +5,7 @@
     %h1.user-register__title
       クックパッドにユーザー登録（無料）する
     .user-register__form
-      %form
+      = form_for @user do |f|
         %table.user-register__form__table
           %tr.user-register__form__table__label
             %td{colspan: 2}
@@ -13,68 +13,60 @@
               ログインに使用する情報
           %tr.user-register__form__table__mail
             %th
-              %label
-                メールアドレス
+              = f.label :mail, 'メールアドレス'
             %td
-              %input{type: 'email', class: 'user-register__form__table__mail__input'}
+              = f.text_field :mail, class: 'user-register__form__table__mail__input'
+              / %input{type: 'email', class: 'user-register__form__table__mail__input'}
               %p.user-register__form__table__mail__text
                 ※メールアドレスはログインに使用します。
           %tr.user-register__form__table__pass
             %th
-              %label
-                パスワード
+              = f.label :password, 'パスワード'
               %i.fa.fa-question-circle.lg
             %td
-              %input{type: 'password', class: 'user-register__form__table__pass__input'}
+              = f.password_field :password, class: 'user-register__form__table__pass__input'
           %tr.user-register__form__table__confirm-pass
             %th
-              %label
-                パスワード(確認)
+              = f.label :password_confirmation, 'パスワード確認'
             %td
-              %input{type: 'password', class: 'user-register__form__table__confirm-pass__input'}
+              = f.password_field :password_confirmation, class: 'user-register__form__table__confirm-pass__input'
           %tr.user-register__form__table__label
             %td{ colspan: 2}
               %i.fa.fa-cog.fa-lg#cog
               ログイン情報を忘れた場合にご本人様確認のために使用する情報
+          %tr.user-register__form__table__name
+            %th
+              = f.label :name, '名前'
+            %td
+              = f.text_field :name, class: 'user-register__form__table__name__input'
           %tr.user-register__form__table__postnum
             %th
-              %label
-                郵便番号
+              = f.label :postnum, '郵便番号'
             %td
-              %input{type: 'text', autocomplete: "postal-code", name:'postal-code', min: '7', max: '7', class: 'user-register__form__table__postnum__input'}
+              = f.text_field :postnum, min: '7', max: '7', class: 'user-register__form__table__postnum__input'
           %tr.user-register__form__table__birthday
             %th
-              %label
-                生年月日
+              = f.label :birthday, '生年月日'
             %td
-              = render partial: '/users/birthday'
+              = f.select :birth_year, options_for_select(1902..2017), {prompt: '--'}, {class: 'user-register__form__table__birthday__select', id: 'month'}
+              年
+              = f.select :birth_month, options_for_select(1..12), {prompt: '--'}, {class: 'user-register__form__table__birthday__select'}
+              月
+              = f.select :birthday, options_for_select(1..31), {prompt: '--'}, {class: 'user-register__form__table__birthday__select'}
+              日
           %tr.user-register__form__table__sex
             %th
-              %label
-                性別
+              = f.label :sex, '性別'
             %td
-              %label
-                %input{type: 'radio', class: 'user-register__form__table__sex__input'}
-                %span
-                  女性
-              %label
-                %input{type: 'radio', class: 'user-register__form__table__sex__input'}
-                %span
-                  男性
-          %tr.user-register__form__table__space
-            %td{colspan: 2}
-          %tr.user-register__form__table__user-mail-notification
-            %th
-              お知らせメール
-            %td
-              %label
-                %input{type: 'checkbox', class: 'user-register__form__table__user-mail-notification__input'}
-                %span
-                  クックパッドの最新情報を受け取る
-      .user-register__form__submit
-        %p.user-register__form__submit__text
-          = link_to root_path, method: :get do
-            クックパッドご利用
-          規約に同意の上、「同意して確認画面に進む」ボタンを押してください
-        %input{type: 'submit', class: 'user-register__form__submit__button', value: '同意して確認画面に進む'}
-
+              = f.radio_button 'sex', 0, class: 'user-register__form__table__sex__input'
+              %span
+                女性
+              = f.radio_button 'sex', 1, class: 'user-register__form__table__sex__input'
+              %span
+                男性
+        .user-register__form__submit
+          %p.user-register__form__submit__text
+            = link_to root_path, method: :get do
+              クックパッドご利用規約
+            に同意の上、「同意して確認画面に進む」ボタンを押してください
+          = f.button :同意して確認画面に進む, class: 'user-register__form__submit__button'
