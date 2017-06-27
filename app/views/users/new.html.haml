@@ -48,9 +48,9 @@
             %th
               = f.label :birthday, '生年月日'
             %td
-              = f.select :birthday, options_for_select(1902..2017), {prompt: '--'}, {class: 'user-register__form__table__birthday__select', id: 'month'}
+              = f.select :birth_year, options_for_select(1902..2017), {prompt: '--'}, {class: 'user-register__form__table__birthday__select', id: 'month'}
               年
-              = f.select :birthday, options_for_select(1..12), {prompt: '--'}, {class: 'user-register__form__table__birthday__select'}
+              = f.select :birth_month, options_for_select(1..12), {prompt: '--'}, {class: 'user-register__form__table__birthday__select'}
               月
               = f.select :birthday, options_for_select(1..31), {prompt: '--'}, {class: 'user-register__form__table__birthday__select'}
               日
