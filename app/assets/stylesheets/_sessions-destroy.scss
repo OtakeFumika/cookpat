@@ -1,0 +1,31 @@
+.logout{
+  width:970px;
+  margin:0 auto;
+  &__contents{
+    width:650px;
+    background-color: white;
+    float:left;
+    padding:20px;
+    box-sizing:border-box;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    box-sizing:border-box;
+    &__text{
+      box-sizing:border-box;
+      width:610px;
+      padding:10px 20px;
+      background-color: rgb(255, 253, 239);
+      border: 1px solid rgb(240, 235, 202);
+      p{
+        font-size:14px;
+      }
+    }
+    a{
+      color:rgb(51, 0, 0);
+      font-size:14px;
+      display: block;
+      text-align: center;
+      margin:20px 0  0 0;
+    }
+  }
+}
