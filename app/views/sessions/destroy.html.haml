@@ -1,0 +1,12 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .logout
+    .logout__contents
+      .logout__contents__text
+        %p
+          ログアウトしました。
+        %p
+          ご利用ありがとうございました。
+      = link_to root_path, method: :get do
+        クックパッドトップへ
