@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'recipes#index'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#delete' #動作確認用
-  delete '/logout' => 'sessions#delete'
+  get '/logout' => 'sessions#destroy' #動作確認用
+  delete '/logout' => 'sessions#destroy'
   resources :users, only: [:edit, :update, :new, :create]
   resources :recipes
   get '/recipes/search' => 'recipes#search'
