@@ -21,6 +21,18 @@ class UsersController < ApplicationController
   def update
   end
 
+  def mail_edit
+  end
+
+  def mail_update
+  end
+
+  def password_edit
+  end
+
+  def password_update
+  end
+
   private
 
   def user_params
