@@ -1,3 +1,122 @@
 = render partial: '/layouts/modules/nav-bar'
 .body
   = render partial: '/layouts/modules/header'
+  .contents
+    .contents__main
+      .contents__main__title
+        %h1
+          登録情報
+        %span
+          このページはあなたのみ閲覧できます
+      = form_for @user, html:{ multipart: true} do |f|
+        .contents__main__account
+          = f.label :image, {class: 'contents__main__account__image'} do
+            = f.file_field :image, class: 'contents__main__account__image__hidden'
+            = image_tag 'default-icon.png', width: 48, height: 48, alt: 'logo'
+            %p.contents__main__account__image__text
+              変更する
+          .contents__main__account__name
+            %p
+              = @user.name
+            = link_to root_path, method: :get do
+              (変更する)
+          .contents__main__account__kitchen
+            %span
+              あなたのキッチン：
+            = link_to root_path, method: :get do
+              = @user.name
+              のキッチン
+          .contents__main__account__date
+            %span.contents__main__account__date__register
+              登録日：
+              = @user.created_at.strftime('%Y/%m/%d')
+            %span.contents__main__account__date__update
+              更新日：
+              = @user.created_at.strftime('%Y/%m/%d')
+        .contents__main__service
+          .contents__main__service__title
+            %i.fa.fa-check
+            サービスのご利用状況
+          %table.contents__main__service__table
+            %tr
+              %th
+                サービス名
+              %th
+                利用状況
+              %th
+                設定
+            %tr
+              %th
+                クックパッド
+              %td
+                ユーザー登録済み
+              %td
+                = link_to root_path, method: :get do
+                  解除する
+        .contents__main__user
+          .contents__main__user__title
+            %i.fa.fa-lock.fa-lg
+            お客様情報
+            %span
+              ※登録した
+              %span
+                メールアドレス・クレジットカード情報など
+              の確認や変更ができます。<br>
+              手続きを進めるにはパスワードが必要です。
+          %table.contents__main__user__table
+            %tr
+              %th
+                登録情報
+              %th
+                登録内容
+            %tr
+              %th
+                メールアドレス
+              %td
+                = @user.mail
+                = link_to root_path, method: :get do
+                  変更する
+            %tr
+              %th
+                パスワード
+              %td
+                = @user.password
+                = link_to root_path, method: :get do
+                  変更する
+            %tr
+              %th
+                性別
+              %td
+                = @user.sex
+            %tr
+              %th
+                生年月日
+              %td
+                = @user.birth_year
+                年
+                = @user.birth_month
+                月
+                = @user.birthday
+                日
+            %tr
+              %th
+                郵便番号
+              %td
+                = @user.postnum
+                = link_to root_path, method: :get do
+                  変更する
+    .contents__side
+      .contents__side__title
+        %i.fa.fa-lock.fa-lg
+        セキュリティと個人情報について
+      .contents__side__secure
+        .contents__side__secure__image
+          = image_tag 'secure.png'
+        .contents__side__secure__text
+          このページは、セキュリティ保護のためSSL暗号化通信に対応しています。
+          お客様の情報を暗号化し、万全のセキュリティシステムのもと送信されます。
+          %p
+            詳しくは
+            = link_to root_path, method: :get do
+              サービスプライバシーポリシー
+            をご覧ください。

@@ -1,0 +1,177 @@
+.contents{
+  width:970px;
+  height:700px;
+  margin:0 auto;
+  &__main{
+    width:650px;
+    background-color: white;
+    float:left;
+    padding:20px;
+    box-sizing:border-box;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+    box-sizing:border-box;
+    &__title{
+      height:30px;
+      width:100%;
+      border-bottom: 1px solid $border-color;
+      h1{
+      font-weight: bold;
+      font-size:19px;
+      display: inline-block;
+      }
+      span{
+        font-size:12px;
+        color:rgb(102, 102, 102);
+        line-height:30px;
+        float:right;
+      }
+    }
+    &__account{
+      height:70px;
+      margin: 10px 0px 20px 0;
+      box-sizing:border-box;
+      &__image{
+        float:left;
+        margin-right: 10px;
+        &__hidden{
+          display: none;
+        }
+        &__text{
+          font-size:12px;
+          line-height: 10px;
+          text-decoration: underline;
+        }
+      }
+      &__name{
+        p{
+          font-weight:bold;
+          font-size:19px;
+          display: inline-block;
+        }
+        a{
+          font-size:12px;
+          color:rgb(132, 95, 75);
+        }
+      }
+      &__kitchen{
+        span{
+          font-size:12px;
+          color:rgb(102, 102, 102);
+        }
+        a{
+          color:rgb(132, 95, 75);
+          font-size:14px;
+        }
+      }
+      &__date{
+        color:rgb(102, 102, 102);
+        font-size:12px;
+        &__register{
+          margin-right: 10px;
+        }
+      }
+    }
+    &__service{
+      &__title{
+        font-weight:bold;
+        .fa{
+          color:limegreen;
+          text-shadow:1px 1px 1px gray;
+        }
+      }
+      &__table{
+        width:100%;
+        border: 1px rgb(214, 215, 185) solid;
+        font-size:14px;
+        margin-bottom:20px;
+        tr{
+          border: 1px rgb(214, 215, 185) solid;
+          td{
+            border: 1px $table-border solid;
+            padding-left:10px;
+            a{
+              color:rgb(132, 95, 75);
+            }
+          }
+          th{
+            border: 1px rgb(214, 215, 185) solid;
+            background-color:rgb(235, 228, 201);
+            font-weight: bold;
+            color: rgb(176, 144, 104);
+            height: 30px;
+            padding-left:10px;
+          }
+        }
+      }
+    }
+    &__user{
+      &__title{
+        font-weight:bold;
+        .fa{
+          color:gold;
+        }
+        span{
+          font-weight: normal;
+          font-size:11px;
+          span{
+            font-weight: bold;
+          }
+        }
+      }
+      &__table{
+        width:100%;
+        border: 1px rgb(214, 215, 185) solid;
+        font-size:14px;
+        margin-bottom:20px;
+        tr{
+          border: 1px rgb(214, 215, 185) solid;
+          td{
+            border: 1px $table-border solid;
+            padding-left:10px;
+            a{
+              color:rgb(132, 95, 75);
+            }
+          }
+          th{
+            border: 1px rgb(214, 215, 185) solid;
+            background-color:rgb(235, 228, 201);
+            font-weight: bold;
+            color: rgb(176, 144, 104);
+            height: 30px;
+            padding-left:10px;
+          }
+        }
+      }
+    }
+  }
+  &__side{
+    width:300px;
+    box-sizing:border-box;
+    background-color: white;
+    float:right;
+    border-radius:4px;
+    border: 1px solid $border-color;
+    &__title{
+      padding:5px;
+      font-size:13px;
+      border-bottom:1px solid $border-color;
+      background-color:rgb(235, 228, 201);
+      .fa{
+        color:gold;
+        font-size:20px;
+      }
+    }
+    &__secure{
+      &__text{
+        font-size:12px;
+        padding:10px;
+        margin-bottom:20px;
+      }
+      &__image{
+        float:right;
+        padding-right:10px;
+      }
+    }
+  }
+}
