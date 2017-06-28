@@ -8,7 +8,7 @@
           登録情報
         %span
           このページはあなたのみ閲覧できます
-      = form_for @user, html:{ multipart: true} do |f|
+      = form_for @user, html:{ multipart: true, id: 'authentication-form'} do |f|
         .contents__main__account
           = f.label :image, {class: 'contents__main__account__image'} do
             = f.file_field :image, class: 'contents__main__account__image__hidden'
@@ -60,7 +60,7 @@
             %span
               ※登録した
               %span
-                メールアドレス・クレジットカード情報など
+                メールアドレスなど
               の確認や変更ができます。<br>
               手続きを進めるにはパスワードが必要です。
           %table.contents__main__user__table
@@ -74,14 +74,13 @@
                 メールアドレス
               %td
                 = @user.mail
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/mail/edit", method: :get do
                   変更する
             %tr
               %th
                 パスワード
               %td
-                = @user.password
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/change_password", method: :get do
                   変更する
             %tr
               %th
@@ -103,8 +102,56 @@
                 郵便番号
               %td
                 = @user.postnum
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/postnum/edit", method: :get do
                   変更する
+          / ユーザーパスワード確認用のテーブル
+          .contents__main__user__authentication#authentication-user
+            %table.contents__main__user__authentication__table
+              %tr
+                %th
+                  登録情報
+                %th
+                  登録内容
+              %tr
+                %th
+                  メールアドレス
+                %td
+                  ＊＊＊＊＠＊＊＊＊
+                  = link_to "/users/#{@user.id}/mail/edit", method: :get do
+                    変更する
+              %tr
+                %th
+                  パスワード
+                %td
+                  = link_to "/users/#{@user.id}/change_password", method: :get do
+                    変更する
+              %tr
+                %th
+                  性別
+                %td
+                  表示されません
+              %tr
+                %th
+                  生年月日
+                %td
+                  ＊＊
+                  年
+                  ＊＊
+                  月
+                  ＊＊
+                  日
+              %tr
+                %th
+                  郵便番号
+                %td
+                  ＊＊＊＊＊
+                  = link_to "/users/#{@user.id}/postnum/edit", method: :get do
+                    変更する
+            .contents__main__user__authentication__form#authentication-form
+              %p
+                ログイン時のパスワードを入力してください
+              = f.password_field :password, id: 'authentication-password'
+              = f.button :表示する, class: 'authentication-submit'
     .contents__side
       .contents__side__title
         %i.fa.fa-lock.fa-lg

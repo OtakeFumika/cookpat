@@ -1,0 +1,32 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__main
+      .contents__main__title
+        %h1
+          メールアドレスの変更
+      = form_for @user, html:{ multipart: true}, url: "/users/#{@user.id}/mail/edit" do |f|
+        .contents__main__user
+          %table.contents__main__user__table
+            %tr
+              %th
+                新しいメールアドレス
+              %td
+                = f.text_field :mail, class: 'user-register__form__table__pass__input'
+          = f.button :メールアドレスを変更する, class: 'submit-button'
+    .contents__side
+      .contents__side__title
+        %i.fa.fa-lock.fa-lg
+        セキュリティと個人情報について
+      .contents__side__secure
+        .contents__side__secure__image
+          = image_tag 'secure.png'
+        .contents__side__secure__text
+          このページは、セキュリティ保護のためSSL暗号化通信に対応しています。
+          お客様の情報を暗号化し、万全のセキュリティシステムのもと送信されます。
+          %p
+            詳しくは
+            = link_to root_path, method: :get do
+              サービスプライバシーポリシー
+            をご覧ください。
