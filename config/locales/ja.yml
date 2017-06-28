@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        mail: メールアドレス
+        birth_year: 生まれた年
+        birth_month: 生まれた月
+        birthday: 誕生日
+        postnum: 郵便番号
+        password: パスワード
