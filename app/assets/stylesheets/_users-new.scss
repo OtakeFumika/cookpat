@@ -124,8 +124,9 @@
   font-weight: bold;
   font-size:14px;
   ul {
+    font-size:12px;
     padding-left: 10px;
-    border: 1px $table-border solid;
+    border: 1px $border-color solid;
     color: blue;
     margin: 0 0 30px 0;
   }
