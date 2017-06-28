@@ -118,4 +118,20 @@
     }
   }
 }
+#error_explanation {
+  color: red;
+  padding:10px;
+  font-weight: bold;
+  font-size:14px;
+  ul {
+    font-size:12px;
+    padding: 5px 15px;
+    border: 1px $border-color solid;
+    color: blue;
+    margin: 0 0 30px 0;
+  }
+}
+.field_with_errors {
+  display: inline-block;
+}
 

@@ -6,6 +6,7 @@
       クックパッドにユーザー登録（無料）する
     .user-register__form
       = form_for @user do |f|
+        = render 'shared/error_messages'
         %table.user-register__form__table
           %tr.user-register__form__table__label
             %td{colspan: 2}
