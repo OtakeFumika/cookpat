@@ -33,8 +33,7 @@ class UsersController < ApplicationController
 
   def mail_update
     @user = User.find(params[:id])
-    binding.pry
-    if @user.update_attributes(mail: user_params[:mail])
+    if @user.update(mail: user_params[:mail])
       redirect_to edit_user_path
     else
       render :mail_edit
