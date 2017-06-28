@@ -8,7 +8,7 @@
           ユーザー登録されている方
       .login__form__input
         .login__form__input__left
-          %form
+          = form_for(:session, url: login_path) do |f|
             %label
               %p
                 メールアドレス

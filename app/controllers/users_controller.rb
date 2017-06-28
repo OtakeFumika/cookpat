@@ -32,7 +32,8 @@ class UsersController < ApplicationController
 
   def mail_update
     @user = User.find(params[:id])
-    if @user.update(mail: user_params[:mail])
+    binding.pry
+    if @user.update_attributes(mail: user_params[:mail])
       redirect_to edit_user_path
     else
       render :mail_edit
@@ -61,7 +62,7 @@ class UsersController < ApplicationController
     if @user.update(postnum: user_params[:postnum])
       redirect_to edit_user_path
     else
-      render :password_edit
+      render :postnum_edit
     end
   end
 
