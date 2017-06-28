@@ -8,7 +8,7 @@
           登録情報
         %span
           このページはあなたのみ閲覧できます
-      = form_for @user, html:{ multipart: true} do |f|
+      = form_for @user, html:{ multipart: true, id: 'authentication-form'} do |f|
         .contents__main__account
           = f.label :image, {class: 'contents__main__account__image'} do
             = f.file_field :image, class: 'contents__main__account__image__hidden'
@@ -60,7 +60,7 @@
             %span
               ※登録した
               %span
-                メールアドレス・クレジットカード情報など
+                メールアドレスなど
               の確認や変更ができます。<br>
               手続きを進めるにはパスワードが必要です。
           %table.contents__main__user__table
@@ -74,14 +74,13 @@
                 メールアドレス
               %td
                 = @user.mail
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/mail/edit", method: :get do
                   変更する
             %tr
               %th
                 パスワード
               %td
-                = @user.password
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/change_password", method: :get do
                   変更する
             %tr
               %th
@@ -103,7 +102,7 @@
                 郵便番号
               %td
                 = @user.postnum
-                = link_to root_path, method: :get do
+                = link_to "/users/#{@user.id}/postnum/edit", method: :get do
                   変更する
     .contents__side
       .contents__side__title
