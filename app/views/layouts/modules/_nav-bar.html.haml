@@ -11,12 +11,20 @@
         %li.header__menu__left__recommend
           やみつきタイ料理をマスター！
     %ul.header__menu__right
-      = link_to root_path, method: :get do
-        %li.header__menu__right__login
-          ログイン
-      = link_to root_path, method: :get do
-        %li.header__menu__right__registration
-          ユーザー登録(無料)
+      - if logged_in?
+        = link_to logout_path, method: :delete do
+          %li.header__menu__right__login
+            ログアウト
+        = link_to edit_user_path(current_user.id), method: :get do
+          %li.header__menu__right__registration
+            ユーザー編集
+      - else
+        = link_to login_path, method: :get do
+          %li.header__menu__right__login
+            ログイン
+        = link_to new_user_path, method: :get do
+          %li.header__menu__right__registration
+            ユーザー登録(無料)
       = link_to root_path, method: :get do
         %li.header__menu__right__premium
           プレミアムサービス
