@@ -9,5 +9,11 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :postnum, presence: true, length: { maximum: 7, minimum: 7}
   has_secure_password
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 8, if: :validate_password? },
+              confirmation: {if: :validate_password?}
+private
+
+  def validate_password?
+    password.present? || password_confirmation.present?
+  end
 end

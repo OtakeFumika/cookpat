@@ -5,13 +5,13 @@
     .contents__main
       .contents__main__title
         %h1
-          パスワードの変更
+          郵便番号の変更
       = form_for @user, html:{ multipart: true}, url: "/users/#{@user.id}/postnum/edit" do |f|
         .contents__main__user
           %table.contents__main__user__table
             %tr
               %th
-                新しいパスワード
+                新しい郵便番号
               %td
                 = f.text_field :postnum, class: 'user-register__form__table__pass__input'
           = f.button :郵便番号を変更する, class: 'submit-button'
