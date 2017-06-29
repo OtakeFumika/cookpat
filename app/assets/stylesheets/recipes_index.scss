@@ -1,0 +1,101 @@
+.contents__recipe-box{
+  width:650px;
+  box-sizing:border-box;
+  background-color: white;
+  border-radius:4px;
+  border: 1px $border-color solid;
+  border-top: 6px solid #889b00;
+  padding-bottom:20px;
+  &__title{
+    height:60px;
+    box-sizing:border-box;
+    color: $green;
+    display: block;
+    line-height: 60px;
+    padding-left: 10px;
+    span{
+      font-size:25px;
+    }
+  }
+  &__category{
+    &__title{
+      height:30px;
+      box-sizing:border-box;
+      background-color: $body-color;
+      font-size:14px;
+      padding-left:10px;
+      line-height: 40px;
+      font-weight:bold;
+      a{
+        color:black;
+      }
+    }
+    &__body{
+      display:flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-content: space-around;
+      height:500px;
+      padding:10px;
+      &__pickup{
+        width:45%;
+        align-items: stretch;
+        align-content: stretch;
+        height:90px;
+        padding-right: 10px;
+        margin-bottom:10px;
+        &__image{
+          width:80px;
+          height:100%;
+          float:left;
+          margin-right:10px;
+        }
+        &__title{
+          font-weight: bold;
+          a{
+            color: rgb(132, 95, 75);
+            text-decoration: none;
+          }
+        }
+        &__text{
+          line-height: 20px;
+            color:rgb(153, 153, 153);
+            font-size:12px;
+        }
+      }
+      &__lists{
+        width:205px;
+        align-items: stretch;
+        align-content: stretch;
+        height:90px;
+        &__image{
+          width:40px;
+          height:100%;
+          float:left;
+          margin-right: 10px;
+        }
+        &__title{
+          font-weight: bold;
+          a{
+            color: rgb(132, 95, 75);
+            text-decoration: none;
+          }
+        }
+        &__text{
+          line-height: 20px;
+          a{
+            color:black;
+            font-size:12px;
+            text-decoration: none;
+            .fa{
+              color: $border-color;
+            }
+          }
+        }
+      }
+      &__wrap{
+        width:100%;
+      }
+    }
+  }
+}

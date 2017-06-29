@@ -1,0 +1,249 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__recipe-box
+      .contents__recipe-box__title
+        %i.fa.fa-cutlery.fa-2x
+        %span
+          レシピ
+      .contents___recipe-box__category
+        .contents__recipe-box__category__title
+          = link_to root_path, method: :get do
+            レシピカテゴリ
+        .contents__recipe-box__category__body
+          %ul.contents__recipe-box__category__body__pickup
+            .contents__recipe-box__category__body__pickup__image
+              = image_tag '大葉.png', width: 80, height: 80
+            %li.contents__recipe-box__category__body__pickup__title
+              = link_to root_path, method: :get do
+                薬味に大活躍！大葉レシピ
+            %li.contents__recipe-box__category__body__pickup__text
+              料理にさわやかな風味をプラスしてくれる大葉・しそ。たっぷり使って食卓を夏仕様に♪
+          %ul.contents__recipe-box__category__body__pickup
+            .contents__recipe-box__category__body__pickup__image
+              = image_tag 'おつまみ.png', width: 80, height: 80
+            %li.contents__recipe-box__category__body__pickup__title
+              = link_to root_path, method: :get do
+                おうち居酒屋開店！おつまみレシピ
+            %li.contents__recipe-box__category__body__pickup__text
+              冷たいビールが美味しい季節！お酒にぴったりのおつまみレシピはこちら♪
+          .contents__recipe-box__category__body__wrap
+          / 野菜のおかず
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag '野菜.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                野菜のおかず
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                ズッキーニ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                なす
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                大葉
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'お肉.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                お肉のおかず
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                鶏むね肉
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                豚肉
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                鶏肉
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag '魚介.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                魚介のおかず
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                鮭・サーモン
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                いわし
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                海老
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'ごはんもの.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                ごはんもの
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                牛丼
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                オムライス
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                親子丼
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'パスタ・グラタン.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                パスタ・グラタン
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                カルボナーラ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                冷製パスタ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                グラタン
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag '麺.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                麺
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                そうめん
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                うどん
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                サラダうどん
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'サラダ.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                サラダ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                ポテトサラダ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                コールスローサラダ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                生春巻き
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'スープ・汁物.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                スープ・汁物
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                ラタトゥイユ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                コンソメスープ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                トマトスープ
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'お弁当.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                お弁当
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                作り置き・冷凍でき...
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                お弁当のメインおかず
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                子どもが喜ぶ♪かわ...
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'おもてなし料理.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                おもてなし料理
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                夏！おもてなし料理
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                大皿・メイン料理
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                おもてなしデザート
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'お菓子.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                お菓子
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                チーズケーキ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                クッキー
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                パウンドケーキ
+          %ul.contents__recipe-box__category__body__lists
+            .contents__recipe-box__category__body__lists__image
+              = image_tag 'パン.png', width:40, height:40
+            %li.contents__recipe-box__category__body__lists__title
+              = link_to root_path, method: :get do
+                パン
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                サンドイッチ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                ピザ
+            %li.contents__recipe-box__category__body__lists__text
+              = link_to root_path, method: :get do
+                %i.fa.fa-caret-right.fa-lg
+                メロンパン
+  = render partial: 'layouts/modules/footer'
