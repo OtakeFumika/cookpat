@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
 
   def new
     @user = User.new
@@ -66,9 +67,36 @@ class UsersController < ApplicationController
     end
   end
 
+  def image_edit
+    @user = User.find(params[:id])
+  end
+
+  def image_update
+    @user = User.find(params[:id])
+      if params[:user]
+      @user.update(image: user_params[:image])
+      redirect_to edit_user_path
+    else
+      render :image_edit
+    end
+  end
+
+  def name_edit
+    @user = User.find(params[:id])
+  end
+
+  def name_update
+      @user = User.find(params[:id])
+      if @user.update(name: user_params[:name])
+      redirect_to edit_user_path
+    else
+      render :name_edit
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :mail, :postnum, :birthday, :sex, :password, :password_confirmation, :birth_year, :birth_month)
+    params.require(:user).permit(:name, :mail, :postnum, :birthday, :sex, :password, :password_confirmation, :birth_year, :birth_month, :image)
   end
 end

@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :logged_in_user, only:[:new, :create, :edit, :update, :destory]
   def index
   end
 
