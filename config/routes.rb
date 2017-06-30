@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   patch '/users/:id/change_password' => 'users#password_update'
   get '/users/:id/postnum/edit' => 'users#postnum_edit'
   patch '/users/:id/postnum/edit' => 'users#postnum_update'
+  get '/users/:id/icon/edit' => 'users#image_edit'
+  patch '/users/:id/icon/edit' => 'users#image_update'
+  get '/users/:id/name/edit' => 'users#name_edit'
+  patch '/users/:id/name/edit' => 'users#name_update'
   #レシピ
   resources :recipes
   get '/recipes/search' => 'recipes#search'
