@@ -1,7 +1,7 @@
 .contents{
   width:970px;
-  height:700px;
   margin:0 auto;
+  @include clearfix();
   &__main{
     width:650px;
     background-color: white;
