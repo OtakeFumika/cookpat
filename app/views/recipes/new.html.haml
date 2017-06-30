@@ -1,0 +1,222 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    %form
+      .contents__post
+        .contents__post__author.clearfix
+          .contents__post__author__name
+            = link_to root_path, method: :get do
+              %i.fa.fa-angle-double-left
+              = @user.name
+              のレシピ
+        .contents__post__print_and_delete
+          %span.contents__post__print_and_delete__print
+            = link_to root_path, method: :get do
+              印刷
+          %span.contents__post__print_and_delete__delete
+            = link_to root_path, method: :get do
+              削除
+        .contents__post__name
+          %p.contents__post__name__count
+            あと
+            %span
+              20
+            文字
+          %input{type: 'text', class: 'contents__post__name__form'}
+          %input{type: 'submit', class: 'contents__post__name__save', value: '保存'}
+          = link_to root_path, method: :get do
+            取消
+        .contents__post__image
+          %label
+            %input{type: 'file', style: 'display: none;', class: 'contents__post__image__form'}
+              = image_tag 'レシピ投稿.png', width: 260
+        .contents__post__catch-copy
+          %p.contents__post__catch-copy__count
+            あと
+            %span
+              60
+            字
+          %textarea{ class: 'contents__post__catch-copy__form'}
+          %input{type: 'submit', value: '保存'}
+          = link_to root_path, method: :get do
+            取消
+        %p.contents__post__chef
+          = link_to root_path, method: :get do
+            = @user.name
+        .contents__post__material
+          = link_to root_path, method: :get do
+            = image_tag '材料.png', width: 310
+        .contents__post__steps#steps
+          %ul.contents__post__steps__step
+            %span.contents__post__steps__step__num
+              １
+            %span.contents__post__steps__step__move
+              = link_to root_path, class: 'contents__post__steps__step__move__high', metod: :get do
+                ←
+              = link_to root_path, class: 'contents__post__steps__step__move__low', method: :get do
+                →
+            .contents__post__steps__step__add_and_delete
+              = link_to root_path, method: :get do
+                削除
+              = link_to root_path, method: :get do
+                追加
+            %li.contents__post__steps__step__image
+              %label
+                %input{type: 'file', style: 'display: none;'}
+                  = image_tag '写真をのせる.png', width:110, height: 27
+            %li.contents__post__steps__step__text
+              %label
+                %p.contents__post__steps__step__text__count
+                  あと
+                  %span
+                    ６０
+                  文字
+                %textarea{class: 'contents__post__steps__step__text__form'}
+            %li.contents__post__steps__step__save_and_delete
+              %input{type: 'submit', value: '保存'}
+              = link_to root_path, method: :get do
+                取消
+          %ul.contents__post__steps__step
+            %span.contents__post__steps__step__num
+              2
+            %span.contents__post__steps__step__move
+              = link_to root_path, class: 'contents__post__steps__step__move__high', metod: :get do
+                ←
+              = link_to root_path, class: 'contents__post__steps__step__move__low', method: :get do
+                →
+            .contents__post__steps__step__add_and_delete
+              = link_to root_path, method: :get do
+                削除
+              = link_to root_path, method: :get do
+                追加
+            %li.contents__post__steps__step__image
+              %label
+                %input{type: 'file', style: 'display: none;'}
+                  = image_tag '写真をのせる.png', width:110, height: 27
+            %li.contents__post__steps__step__text
+              %label
+                %p.contents__post__steps__step__text__count
+                  あと
+                  %span
+                    ６０
+                  文字
+                %textarea{class: 'contents__post__steps__step__text__form'}
+            %li.contents__post__steps__step__save_and_delete
+              %input{type: 'submit', value: '保存'}
+              = link_to root_path, method: :get do
+                取消
+          %ul.contents__post__steps__step
+            %span.contents__post__steps__step__num
+              3
+            %span.contents__post__steps__step__move
+              = link_to root_path, class: 'contents__post__steps__step__move__high', metod: :get do
+                ←
+              = link_to root_path, class: 'contents__post__steps__step__move__low', method: :get do
+                →
+            .contents__post__steps__step__add_and_delete
+              = link_to root_path, method: :get do
+                削除
+              = link_to root_path, method: :get do
+                追加
+            %li.contents__post__steps__step__image
+              %label
+                %input{type: 'file', style: 'display: none;'}
+                  = image_tag '写真をのせる.png', width:110, height: 27
+            %li.contents__post__steps__step__text
+              %label
+                %p.contents__post__steps__step__text__count
+                  あと
+                  %span
+                    ６０
+                  文字
+                %textarea{class: 'contents__post__steps__step__text__form'}
+            %li.contents__post__steps__step__save_and_delete
+              %input{type: 'submit', value: '保存'}
+              = link_to root_path, method: :get do
+                取消
+          %ul.contents__post__steps__step
+            %span.contents__post__steps__step__num
+              4
+            %span.contents__post__steps__step__move
+              = link_to root_path, class: 'contents__post__steps__step__move__high', metod: :get do
+                ←
+              = link_to root_path, class: 'contents__post__steps__step__move__low', method: :get do
+                →
+            .contents__post__steps__step__add_and_delete
+              = link_to root_path, method: :get do
+                削除
+              = link_to root_path, method: :get do
+                追加
+            %li.contents__post__steps__step__image
+              %label
+                %input{type: 'file', style: 'display: none;'}
+                  = image_tag '写真をのせる.png', width:110, height: 27
+            %li.contents__post__steps__step__text
+              %label
+                %p.contents__post__steps__step__text__count
+                  あと
+                  %span
+                    ６０
+                  文字
+                %textarea{class: 'contents__post__steps__step__text__form'}
+            %li.contents__post__steps__step__save_and_delete
+              %input{type: 'submit', value: '保存'}
+              = link_to root_path, method: :get do
+                取消
+      .contents__side
+        .contents__side__how-to-write
+          .contents__side__how-to-write__bar
+            レシピの書き方
+            = link_to root_path, method: :get do
+              サンプルはこちら
+          .contents__side__how-to-write__body
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                レシピのタイトル
+              %p
+                レシピに合ったタイトルをつけてください。
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                レシピの写真
+              %p
+                レシピの完成写真をのせてください。イメージが正しく伝わり調理しやすくなります。
+              %p.contents__side__how-to-write__body__title__notice
+                ※人や動物が映り込んだ写真、オリジナルでないものはご遠慮ください。
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                レシピの紹介文
+              %p
+                レシピの味や魅了をわかりやすい言葉で書いてください。
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                材料・分量
+              %p
+                レシピの味が再現できるよう、材料（食材や調味料）とその分量を書いてください。
+              %p.contents__side__how-to-write__body__title__notice
+                ※分量を記載しにくい材料は「少々」や「適量」などで問題はありません。
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                作り方
+              %p
+                お料理初心者の方でもわかるよう、下ごしらえの方法や調理手順を書いてください。
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                コツ、ポイント
+              %p
+                調理時の注意点や、おいしく作るコツなどを教えてください
+            .contents__side__how-to-write__body__title
+              .contents__side__how-to-write__body__title__bar
+                %i.fa.fa-chevron-up
+                レシピの生い立ち
+              %p
+                レシピが生まれたきっかけを教えてください
+              %p.contents__side__how-to-write__body__title__notice
+                ※○○好きな夫のために作った、思い出の母の味をアレンジなど、具体的に書いてください。
+  = render partial: 'layouts/modules/footer'
