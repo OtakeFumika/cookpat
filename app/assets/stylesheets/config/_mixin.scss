@@ -19,11 +19,12 @@
   color:$header-icon;
 }
 @mixin global-search(){
+  height:32px;
   box-sizing:border-box;
   border-radius:3px;
   background-color: white;
   border-color:$ivory;
-  outline-color: brown;
+  outline-color: $green;
   border-width: 1px;
   font-size:80%;
 }

@@ -110,6 +110,7 @@
         padding-left: 27px;
         margin-right:-2px;
         border-width: 1px;
+        outline-width:1px;
         @include global-search();
       }
       &__use{
