@@ -33,13 +33,10 @@
       &__image{
         float:left;
         margin-right: 10px;
-        &__hidden{
-          display: none;
-        }
         &__text{
           font-size:12px;
           line-height: 10px;
-          text-decoration: underline;
+          color:rgb(132, 95, 75);
         }
       }
       &__name{
