@@ -10,15 +10,17 @@
           このページはあなたのみ閲覧できます
       = form_for @user, html:{ multipart: true, id: 'authentication-form'} do |f|
         .contents__main__account
-          = f.label :image, {class: 'contents__main__account__image'} do
-            = f.file_field :image, class: 'contents__main__account__image__hidden'
-            = image_tag 'default-icon.png', width: 48, height: 48, alt: 'logo'
+          = link_to "/users/#{@user.id}/icon/edit", class: 'contents__main__account__image', method: :get do
+            - if @user.image.url
+              = image_tag @user.image, width:48, height:48
+            - else
+              = image_tag 'default-icon.png', width: 48, height: 48, alt: 'logo'
             %p.contents__main__account__image__text
               変更する
           .contents__main__account__name
             %p
               = @user.name
-            = link_to root_path, method: :get do
+            = link_to "/users/#{@user.id}/name/edit", method: :get do
               (変更する)
           .contents__main__account__kitchen
             %span
