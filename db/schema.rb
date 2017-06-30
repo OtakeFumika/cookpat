@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20170626025658) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",            null: false
     t.string   "mail",            null: false
-    t.string   "image"
     t.string   "password_digest", null: false
     t.string   "sex",             null: false
     t.integer  "birth_year",      null: false
@@ -24,6 +23,7 @@ ActiveRecord::Schema.define(version: 20170626025658) do
     t.integer  "postnum",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "image"
   end
 
 end
