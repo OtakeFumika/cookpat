@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
         config.fog_directory  = 'cookpat-upload-image'
         config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/cookpat-upload-image'
     when 'production'
-        config.fog_directory  = 'cookpat-upload-image'
-        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/cookpat-upload-image'
+        config.fog_directory  = 'cookpat-upload-dep'
+        config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/cookpat-upload-dep'
     end
 end
