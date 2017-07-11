@@ -42,6 +42,14 @@
       font-size:14px;
       color:black;
     }
+    &__display{
+      font-size:23px;
+      color:rgb(136, 155, 0);
+      font-weight: bold;
+    }
+  }
+  #name_input{
+    display:none;
   }
   &__image{
     float:left;
@@ -62,12 +70,121 @@
       height: 60px;
       background-color: #ffffd3;
     }
+    &__display{
+      font-size:15px;
+      color:rgb(60, 60, 60);
+    }
+  }
+  #catch-copy_input{
+    display:none;
   }
   &__chef{
     float:right;
     margin-bottom:10px;
+    @include clearfix();
     a{
       color:rgb(132, 95, 75);
+    }
+  }
+  &__ingredients{
+    @include clearfix();
+    width:300px;
+    min-height:320px;
+    display: none;
+    &__title{
+      font-weight: bold;
+      color:rgb(225, 215, 193);
+      font-size:19px;
+      border-bottom: 1px solid #E5E5E5;
+    }
+    &__list{
+      border-bottom: 1px solid #E5E5E5;
+      min-height:25px;
+      @include clearfix();
+      &__name{
+        float:left;
+      }
+      &__quantity{
+        float:right;
+      }
+    }
+  }
+  &__material{
+    @include clearfix();
+    &__back{
+      position: fixed;
+      width:100%;
+      height:100%;
+      background-color: black;
+      top:0;
+      left:0;
+      opacity:0.5;
+      display: none;
+      z-index:9999;
+      &__form{
+        display: none;
+        position: fixed;
+        width:460px;
+        height:540px;
+        background-color: white;
+        left:400px;
+        bottom:200px;
+        border-radius: 4px;
+        border: 7px $border-color solid;
+        overflow: scroll;
+        z-index: 9999;
+        &__close{
+          display:block;
+          position: fixed;
+          left:850px;
+          top:200px;
+          cursor: pointer;
+          background-color: black;
+          border-radius: 50%;
+          height:25px;
+          width:25px;
+          font-size:35px;
+          line-height: 25px;
+          color:red;
+        }
+        &__table{
+          padding:20px;
+          display: block;
+          border-collapse: separate;
+          border-spacing: 10px;
+          border-bottom: 1px solid #faf3e3;
+          th{
+            background-color: rgb(247, 243, 232);
+            text-align: center;
+            font-weight:bold;
+            border-radius: 4px;
+          }
+          &__name{
+            background-color: rgb(255, 253, 239);
+            border-radius: 4px;
+          }
+          &__quantity{
+            border-radius: 4px;
+            width:135px;
+          }
+          &__delete{
+            cursor: pointer;
+          }
+          .fa{
+            color: $border-color;
+          }
+        }
+        &__submit{
+          position: relative;
+          left:170px;
+          font-weight: bold;
+          background-color: $light-gray;
+          padding:5px 10px;
+          border-radius: 4px;
+          margin-top: 20px;
+          font-size:13px;
+        }
+      }
     }
   }
   &__steps{
@@ -77,10 +194,9 @@
       width:24%;
       margin-bottom: 10px;
       margin-right: 5px;
-      height:210px;
       &__num{
         font-weight: bold;
-        color:rgb(132, 95, 75);
+        color:rgb(225, 215, 193);
       }
       &__move{
         a{
@@ -97,9 +213,15 @@
           margin-right: 5px;
         }
       }
+      &__image{
+        &__file{
+
+        }
+      }
       &__text{
         &__form{
           width:130px;
+          max-width: 130px;
           height:100px;
           background-color: #ffffd3;
         }
@@ -116,12 +238,74 @@
       }
     }
   }
+  .step_input{
+    display: none;
+  }
+  &__tips{
+    float: left;
+    padding-right: 10px;
+    box-sizing:border-box;
+    border-right:1px $border-color solid;
+    &__title{
+      font-weight: bold;
+      color:rgb(225, 215, 193);
+    }
+    &__display{
+      width:280px;
+    }
+    &__wrap{
+      display: none;
+      &__count{
+        font-size:12px;
+        color: rgb(102, 102, 102);
+      }
+      &__form{
+        height:130px;
+        width:280px;
+        background-color: #ffffd3;
+        max-width: 280px;
+      }
+      &__save_and_delete{
+        a{
+          color:black;
+          font-size:14px;
+        }
+      }
+    }
+  }
+  &__history{
+    padding-left: 10px;
+    float:left;
+    &__title{
+      font-weight: bold;
+      color:rgb(225, 215, 193);
+    }
+    &__wrap{
+      display: none;
+      &__count{
+        font-size:12px;
+        color: rgb(102, 102, 102);
+      }
+      &__form{
+        height:130px;
+        width:280px;
+        max-width: 280px;
+        background-color: #ffffd3;
+      }
+      &__save_and_delete{
+        a{
+          font-size:14px;
+          color:black;
+        }
+      }
+    }
+  }
 }
 
 .contents__side__how-to-write{
   &__bar{
     background-color: rgb(239, 225, 190);
-    padding: 0 10px;
+    padding: 5px 10px;
     font-size:12px;
     font-weight:bold;
     a{
@@ -134,12 +318,15 @@
     &__title{
       font-size:14px;
       &__bar{
-        padding: 0 10px;
+        padding: 7px 10px;
+        border-bottom: 1px solid rgb(216, 212, 197);
+        cursor: pointer;
       }
       p{
         background-color: rgb(255, 253, 239);
         color: rgb(102, 102, 102);
         padding:5px 10px;
+        display: none;
       }
       &__notice{
         font-size:11px;
@@ -147,3 +334,20 @@
     }
   }
 }
+.contents__submit{
+    text-shadow: 0 -1px 0 #bd4b00;
+    border: 1px solid #cc5200;
+    background: #ff8a24;
+    color: white;
+    text-align: center;
+    margin:20px;
+    padding:10px;
+    position: relative;
+    left:60px;
+    cursor: pointer;
+  }
+
+  .contents__whole{
+    float:right;
+    width:300px;
+  }

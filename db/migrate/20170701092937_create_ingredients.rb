@@ -1,0 +1,10 @@
+class CreateIngredients < ActiveRecord::Migration[5.0]
+  def change
+    create_table :ingredients do |t|
+      t.string :name, null: false
+      t.integer :recipe_id, null: false, foreign_key: true
+      t.string :quantity, null: false
+      t.timestamps
+    end
+  end
+end

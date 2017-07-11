@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :recipes
   mount_uploader :image, ImageUploader
   enum sex: { 女性: '0', 男性: '1'}
   validates :name, presence: true, length: { maximum: 50}
