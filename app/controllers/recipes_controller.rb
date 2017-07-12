@@ -5,9 +5,18 @@ class RecipesController < ApplicationController
 
   def new
     @user = User.find(current_user.id)
+    @recipe = Recipe.new
+    @recipe.steps.build
+    @recipe.ingredients.build
   end
 
   def create
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to root_path, notice:  'グループを作成しました'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,5 +29,11 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:id, :name, :dish_image, :catch_copy, :tip, :history, ingredients_attributes: [:id, :name, :quantity], steps_attributes: [:id, :step_image, :how_to]).merge(user_id: current_user.id)
   end
 end

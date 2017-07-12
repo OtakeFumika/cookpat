@@ -1,0 +1,16 @@
+%p.contents__post__tips__title
+  コツ・ポイント
+.contents__post__tips__result#tip_result
+.contents__post__tips__display
+  = image_tag 'コツやポイントを入力.png', width: 208, height:22, class: 'contents__post__tips__display__click'
+.contents__post__tips__wrap
+  %p.contents__post__tips__wrap__count
+    あと
+    %span
+      120
+    文字
+  = f.text_area :tip, class: 'contents__post__tips__wrap__form'
+  .contents__post__tips__wrap__save_and_delete
+    = f.submit :保存, class: 'contents__post__tips__wrap__save_and_delete__save'
+    = link_to '', class: 'contents__post__tips__wrap__save_and_delete__delete', method: :get do
+      取消

@@ -1,0 +1,27 @@
+.contents__post__ingredients
+  .contents__post__ingredients__title
+    材料
+.contents__post__material
+  = image_tag '材料.png', width: 300, class: 'contents__post__material__click'
+  .contents__post__material__back
+  .contents__post__material__back__form#ingredients_input
+    %i.fa.fa-times-circle.fa-3x.contents__post__material__back__form__close
+    = f.fields_for :ingredients do |i|
+      %table.contents__post__material__back__form__table
+        %tr
+          %th
+            材料・調味料
+          %th
+            分量
+        - @recipe.ingredients.each_with_index do |ingredients, n|
+          %tr.contents__post__material__back__form__table__row
+            %td
+              = i.text_field :name, class: 'contents__post__material__back__form__table__name', id: "ingredients_name-#{n+1}"
+            %td
+              = i.text_field :quantity, class: 'contents__post__material__back__form__table__quantity', id: "ingredients_quantity-#{n+1}"
+            %td
+              %i.fa.fa-window-close.fa-lg.contents__post__material__back__form__table__delete
+            %tr
+              %td
+                = i.button :行を追加する, class: 'contents__post__material__back__form__table__add_button'
+      = i.submit class: 'contents__post__material__back__form__submit', value: '保存して閉じる'
