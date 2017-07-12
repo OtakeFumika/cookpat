@@ -18,6 +18,9 @@
         = link_to edit_user_path(current_user.id), method: :get do
           %li.header__menu__right__registration
             ユーザー編集
+        = link_to "/users/#{current_user.id}", method: :get do
+          %li.header__menu__right__registration
+            MYキッチン
       - else
         = link_to login_path, method: :get do
           %li.header__menu__right__login
