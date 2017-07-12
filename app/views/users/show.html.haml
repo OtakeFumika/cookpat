@@ -1,0 +1,9 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__user_show
+      .contents__user_show__name
+        = current_user.name
+        さんのMYキッチン
+  = render partial: 'layouts/modules/footer'
