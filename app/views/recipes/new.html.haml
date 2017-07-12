@@ -4,7 +4,7 @@
   .contents
     = form_for @recipe, html:{ multipart: true, id: 'recipe_form'}, url: recipes_path do |f|
       .contents__post
-        .contents__post__author.clearfix
+        .contents__post__author
           .contents__post__author__name
             = link_to root_path, method: :get do
               %i.fa.fa-angle-double-left
@@ -17,37 +17,12 @@
           %span.contents__post__print_and_delete__delete
             = link_to '', method: :get do
               削除
-        .contents__post__name
-          .contents__post__name__display
-            = current_user.name + 'さんの新しいレシピ'
-        .contents__post__name#name_input
-          %p.contents__post__name__count
-            あと
-            %span
-              20
-            文字
-          = f.text_field :name, class: 'contents__post__name__form'
-          = f.submit :保存, class: 'contents__post__name__save'
-          = link_to root_path, class: 'contents__post__name__delete', method: :get do
-            取消
+        = render partial: '/recipes/name-form', locals:{f: f}
         .contents__post__image
           = f.label :dish_image do
             = image_tag 'レシピ投稿.png', width: 280,  class: 'contents__post__image__dish'
           = f.file_field :dish_image, style: 'display: none;', class: 'contents__post__image__file'
-        .contents__post__catch-copy__result#catch-copy_result
-        .contents__post__catch-copy__display
-          = image_tag 'キャッチコピーを入力', width: 300, class: 'contents__post__catch-copy__display__click'
-        .contents__post__catch-copy#catch-copy_input
-          %p.contents__post__catch-copy__count
-            あと
-            %span
-              60
-            字
-          = f.text_area :catch_copy, class: 'contents__post__catch-copy__form'
-          .contents__post__catch-copy__save_and_delete
-            = f.submit :保存, class: 'contents__post__catch-copy__save_and_delete__save'
-            = link_to root_path, class: 'contents__post__catch-copy__save_and_delete__delete', method: :get do
-              取消
+        = render partial: '/recipes/catch_copy-form', locals:{f: f}
         %p.contents__post__chef
           = link_to root_path, method: :get do
             - if current_user.image.url
@@ -55,157 +30,12 @@
             - else
               = image_tag 'default-icon.png', width: 22, height: 22, alt: 'logo'
             = current_user.name
-        .contents__post__ingredients
-          .contents__post__ingredients__title
-            材料
-        .contents__post__material
-          = image_tag '材料.png', width: 300, class: 'contents__post__material__click'
-          .contents__post__material__back
-          .contents__post__material__back__form#ingredients_input
-            %i.fa.fa-times-circle.fa-3x.contents__post__material__back__form__close
-            = f.fields_for :ingredients do |i|
-              %table.contents__post__material__back__form__table
-                %tr
-                  %th
-                    材料・調味料
-                  %th
-                    分量
-                - @recipe.ingredients.each_with_index do |ingredients, n|
-                  %tr.contents__post__material__back__form__table__row
-                    %td
-                      = i.text_field :name, class: 'contents__post__material__back__form__table__name', id: "ingredients_name-#{n+1}"
-                    %td
-                      = i.text_field :quantity, class: 'contents__post__material__back__form__table__quantity', id: "ingredients_quantity-#{n+1}"
-                    %td
-                      %i.fa.fa-window-close.fa-lg.contents__post__material__back__form__table__delete
-                %tr
-                  %td
-                    = i.button :行を追加する, class: 'contents__post__material__back__form__table__add_button'
-              = i.submit class: 'contents__post__material__back__form__submit', value: '保存して閉じる'
+        = render partial: '/recipes/ingredients-form', locals:{f: f}
         = f.fields_for :steps do |s|
-          .contents__post__steps#steps
-            - @recipe.steps.each_with_index do |step, i|
-              %ul.contents__post__steps__step
-                %span.contents__post__steps__step__num
-                  = i + 1
-                %span.contents__post__steps__step__move
-                  = link_to '', class: 'contents__post__steps__step__move__high', method: :get do
-                    ←
-                  = link_to '', class: 'contents__post__steps__step__move__low', method: :get do
-                    →
-                .contents__post__steps__step__add_and_delete
-                  = link_to '',class: 'contents__post__steps__step__add_and_delete__delete' ,method: :get do
-                    削除
-                  = link_to '',class: 'contents__post__steps__step__add_and_delete__add' ,method: :get do
-                    追加
-                %li.contents__post__steps__step__image
-                  = s.label "step_image-#{i+1}" do
-                    = image_tag '写真をのせる.png', width: 135, class: 'contents__post__steps__step__image__default'
-                  = s.file_field :step_image, style: 'display: none;', class: "contents__post__steps__step__image__file"
-                .contents__post__steps__step__text.step_display
-                  = image_tag '作り方を入力.png', width: 136, class: 'contents__post__steps__step__text__click'
-                  .contents__post__steps__step__text__result
-                  %li.contents__post__steps__step__text.step_input
-                    = s.label :how_to, class: 'contents__post__steps__step__text__label' do
-                      %p.contents__post__steps__step__text__count
-                        あと
-                        %span
-                          ６０
-                        文字
-                      = s.text_area :how_to, class: 'contents__post__steps__step__text__form'
-                    .contents__post__steps__step__save_and_delete
-                      = s.submit :保存, class: 'contents__post__steps__step__save_and_delete__save'
-                      = link_to '', class: 'contents__post__steps__step__save_and_delete__delete', method: :get do
-                        取消
+          = render partial: '/recipes/steps-form', locals:{s: s}
         .contents__post__tips
-          %p.contents__post__tips__title
-            コツ・ポイント
-          .contents__post__tips__result#tip_result
-          .contents__post__tips__display
-            = image_tag 'コツやポイントを入力.png', width: 208, height:22, class: 'contents__post__tips__display__click'
-          .contents__post__tips__wrap
-            %p.contents__post__tips__wrap__count
-              あと
-              %span
-                120
-              文字
-            = f.text_area :tip, class: 'contents__post__tips__wrap__form'
-            .contents__post__tips__wrap__save_and_delete
-              = f.submit :保存, class: 'contents__post__tips__wrap__save_and_delete__save'
-              = link_to '', class: 'contents__post__tips__wrap__save_and_delete__delete', method: :get do
-                取消
+          = render partial: '/recipes/tips-form', locals:{f: f}
         .contents__post__history
-          .contents__post__history__title
-            このレシピの生い立ち
-          .contents__post__history__display
-            = image_tag '生まれたきっかけや経緯を入力.png', width: 290, class: 'contents__post__history__display__click'
-          .contents__post__history__result
-          .contents__post__history__wrap
-            %p.contents__post__history__wrap__count
-              あと
-              %span
-                120
-              文字
-            = f.text_area :history, class: 'contents__post__history__wrap__form'
-            .contents__post__history__wrap__save_and_delete
-              = f.submit :保存, class: 'contents__post__history__wrap__save_and_delete__save'
-              = link_to '',class: 'contents__post__history__wrap__save_and_delete__delete', method: :get do
-                取消
-      .contents__whole
-        .contents__side
-          .contents__side__how-to-write
-            .contents__side__how-to-write__bar
-              レシピの書き方
-              = link_to root_path, method: :get do
-                サンプルはこちら
-            .contents__side__how-to-write__body
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  レシピのタイトル
-                %p
-                  レシピに合ったタイトルをつけてください。
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  レシピの写真
-                %p
-                  レシピの完成写真をのせてください。イメージが正しく伝わり調理しやすくなります。
-                %p.contents__side__how-to-write__body__title__notice
-                  ※人や動物が映り込んだ写真、オリジナルでないものはご遠慮ください。
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  レシピの紹介文
-                %p
-                  レシピの味や魅了をわかりやすい言葉で書いてください。
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  材料・分量
-                %p
-                  レシピの味が再現できるよう、材料（食材や調味料）とその分量を書いてください。
-                %p.contents__side__how-to-write__body__title__notice
-                  ※分量を記載しにくい材料は「少々」や「適量」などで問題はありません。
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  作り方
-                %p
-                  お料理初心者の方でもわかるよう、下ごしらえの方法や調理手順を書いてください。
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  コツ、ポイント
-                %p
-                  調理時の注意点や、おいしく作るコツなどを教えてください
-              .contents__side__how-to-write__body__title
-                .contents__side__how-to-write__body__title__bar.slide_down
-                  %i.fa.fa-chevron-down
-                  レシピの生い立ち
-                %p
-                  レシピが生まれたきっかけを教えてください
-                %p.contents__side__how-to-write__body__title__notice
-                  ※○○好きな夫のために作った、思い出の母の味をアレンジなど、具体的に書いてください。
-        = f.submit :レシピを公開する, class: 'contents__submit'
+          = render partial: '/recipes/history-form', locals:{f: f}
+      = render partial: '/recipes/recipe-side', locals:{f: f}
   = render partial: 'layouts/modules/footer'

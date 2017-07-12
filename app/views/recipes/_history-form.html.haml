@@ -1,0 +1,16 @@
+.contents__post__history__title
+  このレシピの生い立ち
+.contents__post__history__display
+  = image_tag '生まれたきっかけや経緯を入力.png', width: 290, class: 'contents__post__history__display__click'
+.contents__post__history__result
+.contents__post__history__wrap
+  %p.contents__post__history__wrap__count
+    あと
+    %span
+      120
+    文字
+  = f.text_area :history, class: 'contents__post__history__wrap__form'
+  .contents__post__history__wrap__save_and_delete
+    = f.submit :保存, class: 'contents__post__history__wrap__save_and_delete__save'
+    = link_to '',class: 'contents__post__history__wrap__save_and_delete__delete', method: :get do
+      取消

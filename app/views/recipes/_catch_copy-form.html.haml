@@ -1,0 +1,14 @@
+.contents__post__catch-copy__result#catch-copy_result
+.contents__post__catch-copy__display
+  = image_tag 'キャッチコピーを入力', width: 300, class: 'contents__post__catch-copy__display__click'
+.contents__post__catch-copy#catch-copy_input
+  %p.contents__post__catch-copy__count
+    あと
+    %span
+      60
+    字
+  = f.text_area :catch_copy, class: 'contents__post__catch-copy__form'
+  .contents__post__catch-copy__save_and_delete
+    = f.submit :保存, class: 'contents__post__catch-copy__save_and_delete__save'
+    = link_to root_path, class: 'contents__post__catch-copy__save_and_delete__delete', method: :get do
+      取消

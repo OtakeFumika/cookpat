@@ -353,16 +353,28 @@ $('.contents__post__material__back__form__submit').on('click', function(e){
 
   // 送信ボタンを押した際バリデーションを行い、アラート文を表示させる
   $('#recipe_form').on('submit', function(e){
-      if($('.contents__post__steps__step__text__form').val() == ''){
-        alert('作り方を入力してください');
-        return false;
-      }
-      if($('.contents__post__history__wrap__form').val() == ''){
-        alert('レシピの生い立ちを入力してください');
-        return false;
-      }
-      else{
-        return true;
-      }
+    if($('.contents__post__steps__step__text__form').val() == ''){
+      alert('作り方を入力してください');
+      return false;
+    }
+    if($('.contents__post__history__wrap__form').val() == ''){
+      alert('レシピの生い立ちを入力してください');
+      return false;
+    }
+    if($('.contents__post__name__form').val() == ''){
+      alert('レシピの名前を入力してください');
+      return false;
+    }
+    if($('.contents__post__catch-copy__form').val() == ''){
+      alert('レシピのキャッチコピーを入力してください');
+      return false;
+    }
+    if($('.contents__post__image__file').attr('src') == '' || $('.contents__post__material__back__form__table__quantity').val() == ''){
+      alert('料理の写真を投稿してください');
+      return false;
+    }
+    else{
+      return true;
+    }
   });
 });

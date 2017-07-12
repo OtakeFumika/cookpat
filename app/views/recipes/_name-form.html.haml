@@ -1,0 +1,13 @@
+.contents__post__name
+  .contents__post__name__display
+    = current_user.name + 'さんの新しいレシピ'
+.contents__post__name#name_input
+  %p.contents__post__name__count
+    あと
+    %span
+      20
+    文字
+  = f.text_field :name, class: 'contents__post__name__form'
+  = f.submit :保存, class: 'contents__post__name__save'
+  = link_to root_path, class: 'contents__post__name__delete', method: :get do
+    取消
