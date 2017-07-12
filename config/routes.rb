@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy' #動作確認用
   delete '/logout' => 'sessions#destroy'
   #ユーザー
-  resources :users, only: [:edit, :update, :new, :create]
+  resources :users, only: [:edit, :update, :new, :create, :show]
   #ユーザー情報の変更
   get '/users/:id/mail/edit' => 'users#mail_edit'
   patch '/users/:id/mail/edit' => 'users#mail_update'
