@@ -1,34 +1,31 @@
-.contents__post__steps#steps
-  - @recipe.steps.each_with_index do |step, i|
-    %ul.contents__post__steps__step
-      %span.contents__post__steps__step__num
-        = i + 1
-      %span.contents__post__steps__step__move
-        = link_to '', class: 'contents__post__steps__step__move__high', method: :get do
-          ←
-        = link_to '', class: 'contents__post__steps__step__move__low', method: :get do
-          →
-      .contents__post__steps__step__add_and_delete
-        = link_to '',class: 'contents__post__steps__step__add_and_delete__delete' ,method: :get do
-          削除
-        = link_to '',class: 'contents__post__steps__step__add_and_delete__add' ,method: :get do
-          追加
-      %li.contents__post__steps__step__image
-        = s.label "step_image-#{i+1}" do
-          = image_tag '写真をのせる.png', width: 135, class: 'contents__post__steps__step__image__default'
-        = s.file_field :step_image, style: 'display: none;', class: "contents__post__steps__step__image__file"
-      .contents__post__steps__step__text.step_display
-        = image_tag '作り方を入力.png', width: 136, class: 'contents__post__steps__step__text__click'
-        .contents__post__steps__step__text__result
-        %li.contents__post__steps__step__text.step_input
-          = s.label :how_to, class: 'contents__post__steps__step__text__label' do
-            %p.contents__post__steps__step__text__count
-              あと
-              %span
-                ６０
-              文字
-            = s.text_area :how_to, class: 'contents__post__steps__step__text__form'
-          .contents__post__steps__step__save_and_delete
-            = s.submit :保存, class: 'contents__post__steps__step__save_and_delete__save'
-            = link_to '', class: 'contents__post__steps__step__save_and_delete__delete', method: :get do
-              取消
+%ul.contents__post__steps__step
+  %span.contents__post__steps__step__num
+  %span.contents__post__steps__step__move
+    = link_to '', class: 'contents__post__steps__step__move__high', method: :get do
+      ←
+    = link_to '', class: 'contents__post__steps__step__move__low', method: :get do
+      →
+  .contents__post__steps__step__add_and_delete
+    = link_to '',class: 'contents__post__steps__step__add_and_delete__delete' ,method: :get do
+      削除
+    = link_to '',class: 'contents__post__steps__step__add_and_delete__add' ,method: :get do
+      追加
+  %li.contents__post__steps__step__image
+    = s.label :step_image, class: 'contents__post__steps__step__image__label' do
+      = image_tag '写真をのせる.png', width: 135, class: 'contents__post__steps__step__image__default'
+    = s.file_field :step_image, style: 'display: none;', class: "contents__post__steps__step__image__file", data: {step_image: "#{image}"}
+  .contents__post__steps__step__text.step_display
+    = image_tag '作り方を入力.png', width: 136, class: 'contents__post__steps__step__text__click'
+    .contents__post__steps__step__text__result
+    %li.contents__post__steps__step__text.step_input
+      = s.label :how_to, class: 'contents__post__steps__step__text__label' do
+        %p.contents__post__steps__step__text__count
+          あと
+          %span
+            ６０
+          文字
+        = s.text_area :how_to, class: 'contents__post__steps__step__text__form'
+      .contents__post__steps__step__save_and_delete
+        = s.submit :保存, class: 'contents__post__steps__step__save_and_delete__save'
+        = link_to '', class: 'contents__post__steps__step__save_and_delete__delete', method: :get do
+          取消
