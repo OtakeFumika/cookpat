@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to root_path, notice:  'グループを作成しました'
+      redirect_to root_path, notice:  'レシピを作成しました'
     else
       render :new
     end
