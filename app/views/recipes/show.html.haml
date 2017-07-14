@@ -1,0 +1,51 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__post
+      .contents__post__name
+        .contents__post__name__cover
+        .contents__post__name__display.show_recipe
+          = @recipe.name
+      .contents__post__image
+        = image_tag "#{@recipe.dish_image}", width: 280,  class: 'contents__post__image__dish'
+      .contents__post__catch-copy__result.show_recipe#catch-copy_result
+        = @recipe.catch_copy
+      %p.contents__post__chef
+        = link_to "/users/#{@recipe.user_id}", method: :get do
+          - if @recipe.user.image.url
+            = image_tag @recipe.user.image, width:22, height:22
+          - else
+            = image_tag 'default-icon.png', width: 22, height: 22, alt: 'logo'
+          = @recipe.user.name
+      .contents__post__ingredients{style: 'display: inline-block'}
+        .contents__post__ingredients__title
+          材料
+        - @recipe.ingredients.each do |i|
+          .contents__post__ingredients__list
+            .contents__post__ingredients__list__name
+              = i.name
+            .contents__post__ingredients__list__quantity
+              = i.quantity
+      .contents__post__steps#steps
+        - @recipe.steps.each_with_index do |s, i|
+          %ul.contents__post__steps__step
+            %span.contents__post__steps__step__num
+              = i
+            %li.contents__post__steps__step__image
+              = image_tag s.step_image
+            .contents__post__steps__step__text.step_display
+              .contents__post__steps__step__text__result.show_recipe
+                = s.how_to
+      .contents__post__tips
+        %p.contents__post__tips__title
+          コツ・ポイント
+        .contents__post__tips__result.show_recipe#tip_result
+          = @recipe.tip
+      .contents__post__history
+        .contents__post__history__title
+          このレシピの生い立ち
+        .contents__post__history__display
+          .contents__post__history__result.show_recipe
+            = @recipe.history
+  = render partial: 'layouts/modules/footer'
