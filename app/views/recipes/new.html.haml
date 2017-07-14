@@ -31,8 +31,9 @@
               = image_tag 'default-icon.png', width: 22, height: 22, alt: 'logo'
             = current_user.name
         = render partial: '/recipes/ingredients-form', locals:{f: f}
-        = f.fields_for :steps do |s|
-          = render partial: '/recipes/steps-form', locals:{s: s}
+        .contents__post__steps#steps
+          = f.fields_for :steps do |s|
+            = render partial: '/recipes/steps-form', locals:{s: s, image: s.object.step_image.model.step_image}
         .contents__post__tips
           = render partial: '/recipes/tips-form', locals:{f: f}
         .contents__post__history
