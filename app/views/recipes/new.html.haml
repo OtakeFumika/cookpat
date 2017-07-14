@@ -10,13 +10,6 @@
               %i.fa.fa-angle-double-left
               = current_user.name
               のレシピ
-        .contents__post__print_and_delete
-          / %span.contents__post__print_and_delete__print
-          /   = link_to '', method: :get do
-          /     印刷
-          / %span.contents__post__print_and_delete__delete
-          /   = link_to '', method: :get do
-          /     削除
         = render partial: '/recipes/name-form', locals:{f: f}
         .contents__post__image
           = f.label :dish_image do
