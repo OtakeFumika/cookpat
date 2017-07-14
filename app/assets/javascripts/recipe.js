@@ -238,7 +238,8 @@ $(function(){
 
     step.find('.contents__post__steps__step__num').text(num);
     step.find('.contents__post__steps__step__image').find('label').attr('for', 'recipe_steps_attributes_' + array + '_step_image-' + num);
-    step.find('.contents__post__steps__step__image__file').attr({id: 'recipe_steps_attributes_' + array + '_step_image-' + num, name: 'recipe[steps_attributes][' + array + '][step_image]'});
+    var file = step.find('.contents__post__steps__step__image__file').attr({id: 'recipe_steps_attributes_' + array + '_step_image-' + num, name: 'recipe[steps_attributes][' + array + '][step_image]'});
+    file.val('');
     step.find('.contents__post__steps__step__image__default').attr('id', 'steps_step_image-' + num);
     step.find('.contents__post__steps__step__text__label').attr('for', 'recipe_steps_attributes_'+ array + '_how_to-' + num );
     step.find('.contents__post__steps__step__text__form').attr({id: 'recipe_steps_attributes_'+ array + '_how_to-' + num, name: 'recipe[steps_attributes][' + array + '][how_to]'});
@@ -287,7 +288,6 @@ $('.contents__post__material__back__form__table__delete').on('click', function()
   $(this).parents('.contents__post__material__back__form__table__row').remove();
 
   $('.contents__post__material__back__form__table__row').each(function(i){
-    i = i + 1
     $(this).find('.contents__post__material__back__form__table__name').attr('id', 'indredients__name-' + i);
     $(this).find('.contents__post__material__back__form__table__quantity').attr('id', 'ingredients__quantity-' + i);
   });
