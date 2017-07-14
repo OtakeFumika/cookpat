@@ -450,4 +450,6 @@ $('.contents__post__material__back__form__submit').on('click', function(e){
   $('.contents__post__material__back').hide();
   $('#ingredients_input').hide();
   });
+  // showページでは、イベントを発動させないようにする
+  $('.show_recipe').off();
 });
