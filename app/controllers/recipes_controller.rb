@@ -6,8 +6,8 @@ class RecipesController < ApplicationController
   def new
     @user = User.find(current_user.id)
     @recipe = Recipe.new
-    @recipe.steps.build
-    @recipe.ingredients.build
+    4.times{@recipe.steps.build}
+    3.times{@recipe.ingredients.build}
   end
 
   def create
