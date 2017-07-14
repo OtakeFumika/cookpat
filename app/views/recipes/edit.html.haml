@@ -2,30 +2,37 @@
 .body
   = render partial: '/layouts/modules/header'
   .contents
-    = form_for @recipe, html:{ multipart: true, id: 'recipe_form'}, url: recipes_path do |f|
+    = form_for @recipe, html:{ multipart: true, id: 'recipe_form'}, url: recipe_path do |f|
       .contents__post
         .contents__post__author
           .contents__post__author__name
             = link_to "/users/#{current_user.id}", method: :get do
               %i.fa.fa-angle-double-left
-              = current_user.name
+              = @recipe.user.name
               のレシピ
+        .contents__post__print_and_delete
+          %span.contents__post__print_and_delete__print
+            = link_to '', method: :get do
+              印刷
+          %span.contents__post__print_and_delete__delete
+            = link_to recipe_path, method: :delete do
+              削除
         = render partial: '/recipes/name-form', locals:{f: f}
         .contents__post__image
           = f.label :dish_image do
             = image_tag 'レシピ投稿.png', width: 280,  class: 'contents__post__image__dish'
-          = f.file_field :dish_image, style: 'display: none;', class: 'contents__post__image__file'
+          = f.file_field :dish_image, style: 'display: none;', class: 'contents__post__image__file', data: {dish_image: "#{@recipe.dish_image}"}
         = render partial: '/recipes/catch_copy-form', locals:{f: f}
         %p.contents__post__chef
           = link_to root_path, method: :get do
-            - if current_user.image.url
-              = image_tag current_user.image, width:22, height:22
+            - if @recipe.user.image.url
+              = image_tag @recipe.user.image, width:22, height:22
             - else
               = image_tag 'default-icon.png', width: 22, height: 22, alt: 'logo'
-            = current_user.name
+            = @recipe.user.name
         = render partial: '/recipes/ingredients-form', locals:{f: f}
         .contents__post__steps#steps
-          = f.fields_for :steps do |s|
+          = f.fields_for :steps, @recipe_images do |s|
             = render partial: '/recipes/steps-form', locals:{s: s, image: s.object.step_image.model.step_image}
         .contents__post__tips
           = render partial: '/recipes/tips-form', locals:{f: f}
