@@ -27,7 +27,6 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    binding.pry
     if @recipe.update(recipe_params)
       redirect_to root_path, notice: 'レシピを更新しました'
     else
@@ -39,6 +38,14 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    recipe = Recipe.find(params[:id])
+    if current_user.id == recipe.user_id
+      binding.pry
+      recipe.destroy
+      redirect_to controller: :users, action: :show
+    else
+      render :edit
+    end
   end
 
   private
