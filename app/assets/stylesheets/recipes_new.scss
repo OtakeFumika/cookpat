@@ -25,6 +25,7 @@
   }
   &__name{
     margin:20px 0;
+    cursor: pointer;
     &__count{
       font-size:12px;
       color:rgb(102, 102, 102);
@@ -246,6 +247,11 @@
     padding-right: 10px;
     box-sizing:border-box;
     border-right:1px $border-color solid;
+    &__result{
+      display:block;
+      width:290px;
+      word-wrap:break-word;
+    }
     &__title{
       font-weight: bold;
       color:rgb(225, 215, 193);
@@ -276,6 +282,12 @@
   &__history{
     padding-left: 10px;
     float:left;
+    box-sizing:border-box;
+    &__result{
+      display:block;
+      width:290px;
+      word-wrap:break-word;
+    }
     &__title{
       font-weight: bold;
       color:rgb(225, 215, 193);
