@@ -77,7 +77,6 @@ $(function(){
   });
   // 調理工程の入力内容をクリックすると、フォームが表示される
   $('.contents__post__steps__step__text__result').on('click', function(){
-    console.log($(this).parents());
     $(this).parents('.contents__post__steps__step__text.step_display').find('.step_input').show();
     $(this).hide();
   });
@@ -179,7 +178,6 @@ $(function(){
     $('.contents__post__image__dish').on('click', function(){
       var image = $(this)
       var image_file = $(this).parents('.contents__post__image').find('.contents__post__image__file');
-      console.log(image_file);
       image_file.on('change', function(e){
       var file = e.target.files[0];
       var reader = new FileReader();
