@@ -90,7 +90,7 @@
   &__ingredients{
     @include clearfix();
     width:300px;
-    min-height:320px;
+    min-height:180px;
     display: none;
     &__title{
       font-weight: bold;

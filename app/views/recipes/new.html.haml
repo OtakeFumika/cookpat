@@ -17,7 +17,7 @@
           = f.file_field :dish_image, style: 'display: none;', class: 'contents__post__image__file'
         = render partial: '/recipes/catch_copy-form', locals:{f: f}
         %p.contents__post__chef
-          = link_to root_path, method: :get do
+          = link_to "/users/#{current_user.id}", method: :get do
             - if current_user.image.url
               = image_tag current_user.image, width:22, height:22
             - else
