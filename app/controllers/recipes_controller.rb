@@ -20,6 +20,9 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @user = User.find(current_user.id)
+    @recipe = Recipe.find(params[:id])
+    @recipe_images = @recipe.steps
   end
 
   def update
