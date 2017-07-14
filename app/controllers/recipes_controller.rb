@@ -26,6 +26,13 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
+    binding.pry
+    if @recipe.update(recipe_params)
+      redirect_to root_path, notice: 'レシピを更新しました'
+    else
+      render :edit
+    end
   end
 
   def show
