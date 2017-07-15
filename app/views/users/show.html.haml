@@ -15,7 +15,7 @@
               = recipe.name
             %span.contents__user_show__recipes__recipe__chef
               by
-              = link_to root_path, method: :get do
+              = link_to "/users/#{recipe.user_id}", method: :get do
                 = recipe.user.name
             %p.contents__user_show__recipes__recipe__description
               = recipe.catch_copy
