@@ -4,7 +4,7 @@
   .contents
     .contents__user_show
       .contents__user_show__name
-        = current_user.name
+        = @user.name
         さんのレシピ一覧
       .contents__user_show__recipes
         - @recipes.each do |recipe|
