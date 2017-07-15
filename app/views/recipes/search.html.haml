@@ -1,0 +1,28 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__user_show
+      .contents__user_show__name
+        検索結果
+        = @recipes.count
+        件
+      .contents__user_show__recipes
+        - @recipes.each do |recipe|
+          .contents__user_show__recipes__recipe
+            = link_to edit_recipe_path(recipe.id), method: :get do
+              = image_tag "#{recipe.dish_image}", width: 200, height: 200, class: 'contents__user_show__recipes__recipe__image'
+            = link_to edit_recipe_path(recipe.id), class: 'contents__user_show__recipes__recipe__name', method: :get do
+              = recipe.name
+            %span.contents__user_show__recipes__recipe__chef
+              by
+              = link_to root_path, method: :get do
+                = recipe.user.name
+            %p.contents__user_show__recipes__recipe__description
+              = recipe.catch_copy
+            %p.contents__user_show__recipes__recipe__ingredients
+              - recipe.ingredients.join(',')
+              材料：
+              - recipe.ingredients.each do |i|
+                = i.name
+  = render partial: 'layouts/modules/footer'
