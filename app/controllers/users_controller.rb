@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @recipes = Recipe.where(user_id: current_user.id)
+    @user = User.find(params[:id])
+    @recipes = @user.recipes
   end
 
   def mail_edit
