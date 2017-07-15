@@ -49,6 +49,10 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+    @recipes = Recipe.all
+  end
+
   private
 
   def recipe_params
