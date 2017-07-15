@@ -49,9 +49,19 @@ class RecipesController < ApplicationController
     end
   end
 
+  def search
+    text = "%#{params[:text]}%"
+    use = "%#{params[:use]}%"
+    @recipes = []
+    @recipes << Recipe.joins(:ingredients).where("ingredients.name Like(?)", "%#{params[:text]}%") if params[:text] != ""
+    @recipes << Recipe.where("name like ? and (catch_copy like ? or history like ?)", text, use, use)
+    @recipes.flatten!.uniq!
+  end
+
   private
 
   def recipe_params
     params.require(:recipe).permit(:id, :name, :dish_image, :catch_copy, :tip, :history, ingredients_attributes: [:id, :name, :quantity, :_destroy], steps_attributes: [:id, :step_image, :how_to, :_destroy]).merge(user_id: current_user.id)
   end
+
 end

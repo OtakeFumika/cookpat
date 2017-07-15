@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get '/users/:id/name/edit' => 'users#name_edit'
   patch '/users/:id/name/edit' => 'users#name_update'
   #レシピ
-  resources :recipes
   get '/recipes/search' => 'recipes#search'
   post '/recipes/search' => 'recipes#search'
+  resources :recipes
 end
