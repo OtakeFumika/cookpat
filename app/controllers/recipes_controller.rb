@@ -22,6 +22,7 @@ class RecipesController < ApplicationController
   def edit
     @user = User.find(current_user.id)
     @recipe = Recipe.find(params[:id])
+    recipe_user?
     @recipe_images = @recipe.steps
   end
 
@@ -62,6 +63,12 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:id, :name, :dish_image, :catch_copy, :tip, :history, ingredients_attributes: [:id, :name, :quantity, :_destroy], steps_attributes: [:id, :step_image, :how_to, :_destroy]).merge(user_id: current_user.id)
+  end
+
+  def recipe_user?
+    unless current_user.id = @recipe.user_id
+      redirect_to root_path
+    end
   end
 
 end
