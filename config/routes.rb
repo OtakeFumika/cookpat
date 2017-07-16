@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   patch '/users/:id/name/edit' => 'users#name_update'
   #レシピ
   resources :recipes do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:new, :create]
     collection do
       get 'search'
       post 'search'
