@@ -1,5 +1,6 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  has_many :reviews
   has_many :steps, dependent: :destroy
   accepts_nested_attributes_for :steps, reject_if: :reject_steps, allow_destroy: true
   has_many :ingredients, dependent: :destroy
