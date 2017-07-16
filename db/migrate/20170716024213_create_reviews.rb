@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration[5.0]
       t.float :rate
       t.integer :recipe_id, null: false, foreign_key: true
       t.integer :user_id, null: false, foreign_key: true
+      t.string :title
       t.timestamps
     end
   end

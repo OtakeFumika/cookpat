@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170716024213) do
     t.float    "rate",       limit: 24
     t.integer  "recipe_id",                null: false
     t.integer  "user_id",                  null: false
+    t.string   "title"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
