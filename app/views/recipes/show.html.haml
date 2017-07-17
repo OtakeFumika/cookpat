@@ -48,4 +48,78 @@
         .contents__post__history__display
           .contents__post__history__result.show_recipe
             = @recipe.history
+      %ul.contents__menu_tab
+        %li.contents__menu_tab__review
+          レビュー(2件)
+      .contents__review
+        %ul.contents__review__total
+          %li.contents__review__total__star
+            ★★★★★
+            2
+          %li.contents__review__total__count
+            5つ星のうち5.0
+        %table.contents__review__histogram
+          %tr
+            %td
+              星５つ
+            %td
+              ■■■■■■■■■■■
+            %td
+              2
+          %tr
+            %td
+              星４つ
+            %td
+              □□□□□□□□□□□
+            %td
+              0
+          %tr
+            %td
+              星３つ
+            %td
+              □□□□□□□□□□□
+            %td
+              0
+          %tr
+            %td
+              星２つ
+            %td
+              □□□□□□□□□□□
+            %td
+              0
+          %tr
+            %td
+              星１つ
+            %td
+              □□□□□□□□□□□
+            %td
+              0
+        .contents__review__write
+          %p
+            あなたのご意見やご感想を教えてください
+          = link_to root_path, class: 'contents__review__write__button', method: :get do
+            カスタマーレビューを書く
+        %ul.contents__review__body
+          %li.contents__review__body__title
+            %span
+              ★★★★★
+            %span
+              さすが世界的な名作です
+          %li.contents__review__body__author
+            %span
+              投稿者
+              ブラックバード
+            %span
+              投稿日
+              2012/10/5
+          %li.contents__review__body__text
+            この世界的な名作を一度は読んでおこうと思い立ったのがきっかけで読んでみました。
+
+            この作品はナポレオン戦争期のロシアを舞台に、その戦争と貴族の生活や恋愛を描いています。
+
+            まず驚いたのは一文一文の密度の濃さです。全く無駄がないというどころではなく、どの文も重要な意味が含まれているようなそんな文章です。文章が読みにくいという難しさはありません。むしろ読みやすい文章です。時間がかかるとすれば、全ての一文が重いからだと思います。この点、さすがに世界的名作というか偉大な作家の文章は違うなと感じました。
+
+            話の内容ですが、分かり易くいえば司馬さんの「坂の上の雲」に庶民の生活や恋愛要素を加えたような感じといえば分かり易いといえます。「坂の上の雲」はほぼ完全な現場の戦記であるのに対し、「戦争と平和」はやはり克明に描かれる戦闘が、その戦闘とは別の場所で生きる人々に与える影響まで描いています。よって舞台がころころ変わり登場人物も膨大な数（５５９人）になるのですが、読み進んでいくと不思議と読みやすくなってきます。それだけ読み手のことも意識しているに違いありません。このあたり巨大な構成力みたいなものを感じます。
+
+            ただ、時代も時代背景も国も社会的地位も違う人々の心の動きというのはなかなか想像しがたいものがありますね。それは作品内でたびたび記述されるトルストイの考え方にしても同じです。だから決して人類普遍の法則のようなものが延々と描かれているわけではありませんが、当時のロシアや戦争や貴族の世界の雰囲気というのはこういうものだったんだろうなということが分かる、ロシアの文化遺産的な名著であることは間違いないと思います。
   = render partial: 'layouts/modules/footer'
