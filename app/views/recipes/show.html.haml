@@ -65,7 +65,10 @@
           件のレビュー
         %li.contents__review__total__count
           5つ星のうち
-          = @reviews.sum(:rate)/@reviews.count.round(1)
+          - if @reviews.count != 0
+            = @reviews.sum(:rate)/@reviews.count.round(1)
+          - else
+            = 0.0
       %table.contents__review__histogram
         %tr
           %td.contents__review__histogram__label
