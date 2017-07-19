@@ -37,12 +37,12 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @reviews = @recipe.reviews
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     if current_user.id == recipe.user_id
-      binding.pry
       recipe.destroy
       redirect_to controller: :users, action: :show
     else
