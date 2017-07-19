@@ -38,7 +38,11 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
     @reviews = @recipe.reviews
-    gon.average_rate = ( (@reviews.sum(:rate)/(5 * @reviews.count) )* 100).round(0)
+    if @reviews.count != 0
+      gon.average_rate = ( (@reviews.sum(:rate)/(5 * @reviews.count) )* 100).round(0)
+    else
+      gon.average_rate = 0
+    end
   end
 
   def destroy
