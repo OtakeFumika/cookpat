@@ -10,7 +10,7 @@
           %span.service-header__logo__recipe-count__body__small
             レシピ
   .service-header__search
-    = form_tag(recipes_search_path, method: :post, class: 'service-header__search__form', id: 'global-search-form') do
+    = form_tag(search_recipes_path, method: :post, class: 'service-header__search__form', id: 'global-search-form') do
       = search_field_tag :text, '',class: 'service-header__search__form__food', placeholder: '料理名・食材名'
       %i.fa.fa-times
       = search_field_tag :use, '', class: 'service-header__search__form__use', placeholder: '目的・用途'

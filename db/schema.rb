@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170711151727) do
+ActiveRecord::Schema.define(version: 20170716024213) do
 
   create_table "ingredients", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",       null: false
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20170711151727) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "review",     limit: 65535, null: false
+    t.float    "rate",       limit: 24
+    t.integer  "recipe_id",                null: false
+    t.integer  "user_id",                  null: false
+    t.string   "title"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "steps", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "step_image"
     t.string   "how_to",     null: false
@@ -42,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170711151727) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",            null: false
     t.string   "mail",            null: false
+    t.string   "image"
     t.string   "password_digest", null: false
     t.string   "sex",             null: false
     t.integer  "birth_year",      null: false
@@ -50,7 +61,6 @@ ActiveRecord::Schema.define(version: 20170711151727) do
     t.integer  "postnum",         null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "image"
   end
 
 end

@@ -37,12 +37,14 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @reviews = @recipe.reviews
+    set_average_rate(@reviews)
+    set_histogram(@reviews)
   end
 
   def destroy
     recipe = Recipe.find(params[:id])
     if current_user.id == recipe.user_id
-      binding.pry
       recipe.destroy
       redirect_to controller: :users, action: :show
     else
@@ -71,4 +73,23 @@ class RecipesController < ApplicationController
     end
   end
 
+  def set_average_rate(reviews)
+    if reviews.count != 0
+      gon.average_rate = ( (reviews.sum(:rate)/(5 * reviews.count) )* 100).round(0)
+    else
+      gon.average_rate = 0
+    end
+  end
+
+  def set_histogram(reviews)
+    if reviews.count != 0
+      split = (100/reviews.count).round(0)
+      gon.histogram_5 = split * reviews.where(rate: 5).count
+      gon.histogram_4 = split * reviews.where(rate: 4).count
+      gon.histogram_3 = split * reviews.where(rate: 3).count
+      gon.histogram_2 = split * reviews.where(rate: 2).count
+      gon.histogram_1 = split * reviews.where(rate: 1).count
+    else
+    end
+  end
 end

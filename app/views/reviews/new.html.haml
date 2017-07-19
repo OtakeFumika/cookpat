@@ -1,0 +1,35 @@
+= render partial: '/layouts/modules/nav-bar'
+.body
+  = render partial: '/layouts/modules/header'
+  .contents
+    .contents__review_form
+      .contents__review_form__name
+        = current_user.name
+        さんのレビュー
+      = form_for [@recipe, @review] do |f|
+        %p.contents__review_form__description
+          このレシピを星の数で評価してください
+        .contents__review_form__rate
+          = f.radio_button :rate, 5, id: 'review_rate5',style:'display: none;'
+          = f.label :rate5, class: 'contents__review_form__rate__label' do
+            ★
+          = f.radio_button :rate, 4, id: 'review_rate4',style:'display: none;'
+          = f.label :rate4 do
+            ★
+          = f.radio_button :rate, 3, id: 'review_rate3',style:'display: none;'
+          = f.label :rate3 do
+            ★
+          = f.radio_button :rate, 2, id: 'review_rate2',style:'display: none;'
+          = f.label :rate2 do
+            ★
+          = f.radio_button :rate, 1, id: 'review_rate1',style:'display: none;'
+          = f.label :rate1 do
+            ★
+        %p.contents__review_form__description
+          レビューにタイトルをつけてください
+        = f.text_field :title, class: 'contents__review_form__title'
+        %p.contents__review_form__description
+          レビューを以下に記入してください
+        = f.text_area :review, class: 'contents__review_form__review'
+        = f.submit :レビューを送信する, class: 'contents__review_form__submit'
+  = render partial: 'layouts/modules/footer'

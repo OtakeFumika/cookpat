@@ -48,4 +48,85 @@
         .contents__post__history__display
           .contents__post__history__result.show_recipe
             = @recipe.history
+    %ul.contents__menu_tab
+      %li.contents__menu_tab__review
+        レビュー(
+        = @reviews.count
+        件)
+    .contents__review
+      %ul.contents__review__total
+        %li.contents__review__total__avarage
+          .contents__review__total__avarage__back
+            ★★★★★
+          .contents__review__total__avarage__front
+            ★★★★★
+        %li.contents__review__total__num
+          = @reviews.count
+          件のレビュー
+        %li.contents__review__total__count
+          5つ星のうち
+          - if @reviews.count != 0
+            = @reviews.sum(:rate)/@reviews.count.round(1)
+          - else
+            = 0.0
+      %table.contents__review__histogram
+        %tr
+          %td.contents__review__histogram__label
+            星５つ
+          %td.contents__review__histogram__meter
+            .contents__review__histogram__meter__5
+          %td.contents__review__histogram__count
+            = @reviews.where(rate: 5).count
+        %tr
+          %td.contents__review__histogram__label
+            星４つ
+          %td.contents__review__histogram__meter
+            .contents__review__histogram__meter__4
+          %td.contents__review__histogram__count
+            = @reviews.where(rate: 4).count
+        %tr
+          %td.contents__review__histogram__label
+            星３つ
+          %td.contents__review__histogram__meter
+            .contents__review__histogram__meter__3
+          %td.contents__review__histogram__count
+            = @reviews.where(rate: 3).count
+        %tr
+          %td.contents__review__histogram__label
+            星２つ
+          %td.contents__review__histogram__meter
+            .contents__review__histogram__meter__2
+          %td.contents__review__histogram__count
+            = @reviews.where(rate: 2).count
+        %tr
+          %td.contents__review__histogram__label
+            星１つ
+          %td.contents__review__histogram__meter
+            .contents__review__histogram__meter__1
+          %td.contents__review__histogram__count
+            = @reviews.where(rate: 1).count
+      .contents__review__write
+        %p
+          あなたのご意見やご感想を教えてください
+        = link_to new_recipe_review_path(@recipe.id), class: 'contents__review__write__button', method: :get do
+          カスタマーレビューを書く
+          %i.fa.fa-angle-right
+      - @reviews.each do |review|
+        %ul.contents__review__body
+          %li.contents__review__body__title
+            %span.contents__review__body__title__star
+              %span.contents__review__body__title__star__front
+                = '★' * review.rate
+              %span.contents__review__body__title__star__back
+                ★★★★★
+            %span.contents__review__body__title__text
+              = review.title
+          %li.contents__review__body__author
+            投稿者
+            %span.contents__review__body__author__name
+              = review.user.name
+            投稿日
+            = review.created_at.strftime('%Y/%m/%d')
+          %li.contents__review__body__text
+            = review.review
   = render partial: 'layouts/modules/footer'
