@@ -63,6 +63,7 @@
     margin-right:30px;
     border-collapse: separate;
     border-spacing: 10px 5px;
+    margin-bottom:30px;
     &__label{
       font-size:12px;
       color: rgb(0, 102, 192);
@@ -75,12 +76,36 @@
       box-shadow: inset 0 1px 2px rgba(0,0,0,.4),
                   inset 0 0 0 1px rgba(0,0,0,.1);
       border-radius: 1px;
-      // &__5{
-      //   background-color: #ffce00;
-      //   width:100%;
-      //   height:16px;
-      //   background: linear-gradient(to bottom,#ffce00,#ffa700);
-      // }
+      &__5{
+        background-color: #ffce00;
+        width:0%;
+        height:16px;
+        background: linear-gradient(to bottom,#ffce00,#ffa700);
+      }
+      &__4{
+        background-color: #ffce00;
+        width:0%;
+        height:16px;
+        background: linear-gradient(to bottom,#ffce00,#ffa700);
+      }
+      &__3{
+        background-color: #ffce00;
+        width:0%;
+        height:16px;
+        background: linear-gradient(to bottom,#ffce00,#ffa700);
+      }
+      &__2{
+        background-color: #ffce00;
+        width:0%;
+        height:16px;
+        background: linear-gradient(to bottom,#ffce00,#ffa700);
+      }
+      &__1{
+        background-color: #ffce00;
+        width:0%;
+        height:16px;
+        background: linear-gradient(to bottom,#ffce00,#ffa700);
+      }
     }
     &__count{
       font-size:11px;
@@ -107,7 +132,8 @@
     }
   }
   &__body{
-    padding:30px;
+    padding:0 30px;
+    margin-bottom: 50px;
     &__title{
       &__star{
         display: inline-block;
@@ -121,6 +147,7 @@
         }
         &__front{
           position:relative;
+          display: block;
           top:24px;
           color:#ffcc00;
           -webkit-text-stroke: 1px orange;
