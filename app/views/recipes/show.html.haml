@@ -66,7 +66,7 @@
         %li.contents__review__total__count
           5つ星のうち
           - if @reviews.count != 0
-            = @reviews.sum(:rate)/@reviews.count.round(1)
+            = @reviews.average(:rate).round(1)
           - else
             = 0.0
       %table.contents__review__histogram

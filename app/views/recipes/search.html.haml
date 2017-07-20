@@ -18,6 +18,11 @@
               by
               = link_to "/users/#{recipe.user_id}", method: :get do
                 = recipe.user.name
+            %span.contents__user_show__recipes__recipe__star
+              %p.contents__user_show__recipes__recipe__star__back
+                ★★★★★
+              %p.contents__user_show__recipes__recipe__star__front{style: "width: #{recipe.review_average}%"}
+                ★★★★★
             %p.contents__user_show__recipes__recipe__description
               = recipe.catch_copy
             %p.contents__user_show__recipes__recipe__ingredients
