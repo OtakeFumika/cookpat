@@ -37,7 +37,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
-    @reviews = @recipe.reviews
+    @reviews = @recipe.reviews.order('created_at DESC')
     set_average_rate(@reviews)
     set_histogram(@reviews)
   end
@@ -75,7 +75,7 @@ class RecipesController < ApplicationController
 
   def set_average_rate(reviews)
     if reviews.count != 0
-      gon.average_rate = ( (reviews.sum(:rate)/(5 * reviews.count) )* 100).round(0)
+      gon.average_rate = ( reviews.average(:rate) * 20).round(0)
     else
       gon.average_rate = 0
     end
