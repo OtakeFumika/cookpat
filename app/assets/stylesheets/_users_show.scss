@@ -34,6 +34,7 @@
         color: rgb(60, 60, 60);
         a{
           color:black;
+          margin-right:10px;
         }
       }
       &__description{
@@ -43,6 +44,23 @@
       &__ingredients{
         font-size:12px;
         color:rgb(207, 170, 128);
+      }
+      &__star{
+        font-size:20px;
+        display:inline-block;
+        &__back{
+          color:#ccc;
+          position: relative;
+          top:40px;
+        }
+      &__front{
+          position: relative;
+          top:10px;
+          color:#ffcc00;
+          -webkit-text-stroke: 1px orange;
+          overflow: hidden;
+          z-index: 1;
+        }
       }
     }
   }
